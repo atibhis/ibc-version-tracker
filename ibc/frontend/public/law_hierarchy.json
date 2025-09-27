@@ -1,0 +1,70 @@
+{
+  "laws": {
+    "ibc": "Insolvency and Bankruptcy Code"
+  },
+  "parts": {
+    "preliminary": {
+      "name": "Part I: Preliminary",
+      "chapters": [],
+      "defaultSections": ["1", "2", "3"]
+    },
+    "insolvency-resolution-corporate": {
+      "name": "Part II: Insolvency Resolution and Liquidation for Corporate Persons",
+      "chapters": [
+        { "key": "preliminary", "name": "Chapter I: Preliminary", "sections": ["4", "5"] },
+        { "key": "corporate-insolvency-resolution-process", "name": "Chapter II: Corporate Insolvency Resolution Process", "sections": ["6", "7", "8", "9", "10", "10A", "11", "11A", "12", "12A", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "25A", "26", "27", "28", "28A", "29", "29A", "30", "31", "32", "32A"] },
+        { "key": "liquidation-process", "name": "Chapter III: Liquidation Process", "sections": ["33", "34", "34A", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54"] },
+        { "key": "pre-packaged-insolvency-resolution-process", "name": "Chapter IIIA: Pre-Packaged Insolvency Resolution Process", "sections": ["54A", "54B", "54C", "54D", "54E", "54F", "54G", "54H", "54I", "54J", "54K", "54L", "54M", "54N", "54O", "54P"] },
+        { "key": "fast-track-corporate-insolvency-resolution-process", "name": "Chapter IV: Fast Track Corporate Insolvency Resolution Process", "sections": ["55", "56", "57", "58"] },
+        { "key": "creditor-initiated-insolvency-resolution-process", "name": "Chapter IV A: Creditor-Initiated Insolvency Resolution Process", "sections": ["58A", "58B", "58C", "58D", "58E", "58F", "58G", "58H", "58I", "58J", "58K"] },
+        { "key": "voluntary-liquidation-of-corporate-persons", "name": "Chapter V: Voluntary Liquidation of Corporate Persons", "sections": ["59"] },
+        { "key": "group-insolvency", "name": "Chapter VA: Group Insolvency", "sections": ["59A"] },
+        { "key": "adjudicating-authority-for-corporate-persons", "name": "Chapter VI: Adjudicating Authority for Corporate Persons", "sections": ["60", "61", "62", "63", "64", "64A", "65", "66", "67", "67A"] },
+        { "key": "offences-and-penalties", "name": "Chapter VII: Offences and Penalties", "sections": ["68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "77A"] }
+      ]
+    },
+    "insolvency-resolution-individual": {
+      "name": "Part III: Insolvency Resolution and Bankruptcy for Individuals and Partnership Firms",
+      "chapters": [
+        { "key": "preliminary", "name": "Chapter I: Preliminary", "sections": ["78", "79"] },
+        { "key": "fresh-start-process", "name": "Chapter II: Fresh Start Process", "sections": ["80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93"] },
+        { "key": "insolvency-resolution-process", "name": "Chapter III: Insolvency Resolution Process", "sections": ["94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120"] },
+        { "key": "bankruptcy-order-for-individuals-and-partnership-firms", "name": "Chapter IV: Bankruptcy Order for Individuals and Partnership Firms", "sections": ["121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "140", "141", "142", "143", "144", "145", "146", "147", "148"] },
+        { "key": "administration-and-distribution-of-the-estate-of-the-bankrupt", "name": "Chapter V: Administration and Distribution of the Estate of the Bankrupt", "sections": ["149", "150", "151", "152", "153", "154", "155", "156", "157", "158", "159", "160", "161", "162", "163", "164", "164A", "165", "166", "167", "168", "169", "170", "171", "172", "173", "174", "175", "176", "177", "178"] },
+        { "key": "adjudicating-authority-for-individuals-and-partnership-firms", "name": "Chapter VI: Adjudicating Authority for Individuals and Partnership Firms", "sections": ["179", "180", "181", "182", "183", "183A"] },
+        { "key": "offences-and-penalties", "name": "Chapter VII: Offences and Penalties", "sections": ["184", "185", "186", "187"] }
+      ]
+    },
+    "regulation": {
+      "name": "Part IV: Regulation of Insolvency Professionals, Agencies and Information Utilities",
+      "chapters": [
+        { "key": "the-insolvency-and-bankruptcy-board-of-india", "name": "Chapter I: The Insolvency and Bankruptcy Board of India", "sections": ["188", "189", "190", "191", "192", "193", "194", "195"] },
+        { "key": "powers-and-functions-of-the-board", "name": "Chapter II: Powers and Functions of the Board", "sections": ["196", "197", "198"] },
+        { "key": "insolvency-professional-agencies", "name": "Chapter III: Insolvency Professional Agencies", "sections": ["199", "200", "201", "202", "203", "204", "205"] },
+        { "key": "insolvency-professionals", "name": "Chapter IV: Insolvency Professionals", "sections": ["206", "207", "208"] },
+        { "key": "information-utilities", "name": "Chapter V: Information Utilities", "sections": ["209", "210", "211", "212", "213", "214", "215", "216"] },
+        { "key": "inspection-and-investigation", "name": "Chapter VI: Inspection and Investigation", "sections": ["217", "218", "219", "220"] },
+        { "key": "miscellaneous-provisions", "name": "Chapter VII: Miscellaneous Provisions", "sections": ["221", "222", "223"] }
+      ]
+    },
+    "miscellaneous": {
+      "name": "Part V: Miscellaneous",
+      "chapters": [],
+      "defaultSections": ["224", "225", "226", "227", "228", "229", "230", "231", "232", "233", "234", "235", "235A", "236", "237", "238", "238A", "239", "240", "240A", "240B", "240C", "241", "242", "243", "244", "245", "246", "247", "248", "249", "250", "251", "252", "253", "254", "255"]
+    },
+  "schedules": {
+    "name": "Schedules",
+    "chapters": [],
+    "defaultSections": ["1", "2", "3", "4", "5"]
+  }
+},
+  "versions": {
+    "201611": "base",  
+    "201711": {"sections": ["10A", "29A"]},  
+    "201806": {"sections": ["5", "34A"]},   
+    "201908": {"sections": ["29", "32A"]},  
+    "201912": {"sections": ["64A"]},        
+    "202006": {"sections": ["54A", "59A"]}, 
+    "202104": {"sections": ["77A", "183A"]}  
+  }
+}
