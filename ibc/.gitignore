@@ -18,8 +18,11 @@ yarn-error.log*
 # OS files
 .DS_Store
 
+
 # Ignore root content folder
 /content/
 
 # But DO NOT ignore frontend/public/content
 !frontend/public/content/
+../.DS_Store
+*.mov

@@ -84,7 +84,7 @@ const renderMarkdown = (text: string) => {
     .replace(/^### (.*$)/gm, '<h3 class="text-lg font-medium mb-2 text-gray-800">$1</h3>')
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/^\- (.*$)/gm, '<li class="ml-4">• $1</li>')
+    .replace(/^-\s(.*$)/gm, '<li class="ml-4">• $1</li>')
     .replace(/\n\n/g, '</p><p class="mb-4 text-gray-700">')
     .replace(/^(?!<[h|l|s])/gm, '<p class="mb-4 text-gray-700">')
     .replace(/(?<![>])$/gm, '</p>');
@@ -133,7 +133,7 @@ const SimpleDiffViewer: React.FC<{
             </button>
             <button onClick={() => setViewMode("unified")}
               className={`px-3 py-1 text-sm rounded ${
-                viewMode === "unified" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                (viewMode as "side-by-side" | "unified") === "unified" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
               }`}>
               Unified
             </button>
