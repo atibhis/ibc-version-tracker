@@ -49,9 +49,9 @@ export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
       setLoadingA(true);
       try {
         const detail = await api.getSectionDetail(sourceCode, node.identifier, versionA);
-        setContentA(detail.current_content?.raw_content || "Content not available for this version.");
+        setContentA(detail.current_content?.raw_content || `> [!NOTE]\n> This provision was not yet introduced or had no content in the ${getVersionLabel(versionA)} version.`);
       } catch (err) {
-        console.error("Failed to fetch content A", err);
+        setContentA(`> [!WARNING]\n> Provision not found in the ${getVersionLabel(versionA)} version. It may have been introduced in a later amendment.`);
       } finally {
         setLoadingA(false);
       }
@@ -69,9 +69,9 @@ export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
       setLoadingB(true);
       try {
         const detail = await api.getSectionDetail(sourceCode, node.identifier, versionB);
-        setContentB(detail.current_content?.raw_content || "Content not available for this version.");
+        setContentB(detail.current_content?.raw_content || `> [!NOTE]\n> This provision was not yet introduced or had no content in the ${getVersionLabel(versionB)} version.`);
       } catch (err) {
-        console.error("Failed to fetch content B", err);
+        setContentB(`> [!WARNING]\n> Provision not found in the ${getVersionLabel(versionB)} version. It may have been introduced in a later amendment.`);
       } finally {
         setLoadingB(false);
       }
@@ -207,7 +207,7 @@ export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
         )}
       </div>
 
-      <div className="min-h-[400px] py-4">
+      <div className="min-h-[400px] py-8 px-10 md:px-16 bg-slate-50/50 rounded-3xl border border-slate-100/50 shadow-inner">
         {(loadingA || loadingB) ? (
           <div className="flex items-center justify-center h-full min-h-[200px]">
             <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />

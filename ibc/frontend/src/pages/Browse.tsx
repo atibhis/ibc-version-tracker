@@ -89,12 +89,12 @@ export default function Browse() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col text-foreground overflow-hidden">
+    <div className="min-h-screen bg-slate-50 flex flex-col text-foreground">
       <Header />
 
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
         {/* Navigation Sidebar - Clean & Extra Wide for Long Titles */}
-        <aside className="w-[460px] border-r border-slate-100 bg-white flex-shrink-0 hidden lg:flex flex-col shadow-[1px_0_0_0_#f1f5f9]">
+        <aside className="w-full lg:w-[460px] border-b lg:border-b-0 lg:border-r border-slate-100 bg-white flex-shrink-0 flex flex-col shadow-[0_1px_0_0_#f1f5f9] lg:shadow-[1px_0_0_0_#f1f5f9]">
           <div className="p-10 border-b border-slate-50 space-y-10">
             <div>
               <h2 className="font-serif text-3xl font-black text-slate-900 tracking-tighter">Explorer</h2>
@@ -109,7 +109,7 @@ export default function Browse() {
                   <SelectTrigger className="w-full min-h-14 h-auto py-3 bg-slate-50 border-slate-100 rounded-2xl text-left focus:ring-accent/20">
                     <SelectValue placeholder="Part..." className="line-clamp-2" />
                   </SelectTrigger>
-                  <SelectContent className="max-h-[600px] w-[420px]">
+                  <SelectContent className="max-h-[600px] w-[420px]" side="bottom" align="start">
                     {parts.map(p => (
                       <SelectItem key={p.id} value={p.id} className="py-4">
                         <div className="flex items-start gap-3">
@@ -130,7 +130,7 @@ export default function Browse() {
                     <SelectTrigger className="w-full min-h-14 h-auto py-3 bg-slate-50 border-slate-100 rounded-2xl text-left focus:ring-accent/20">
                       <SelectValue placeholder="Chapter..." className="line-clamp-2" />
                     </SelectTrigger>
-                    <SelectContent className="max-h-[600px] w-[420px]">
+                    <SelectContent className="max-h-[600px] w-[420px]" side="bottom" align="start">
                       {chapters.map(c => (
                         <SelectItem key={c.id} value={c.id} className="py-4">
                           <div className="flex items-start gap-3">
@@ -153,7 +153,7 @@ export default function Browse() {
                   <SelectTrigger className="w-full h-14 bg-slate-50 border-slate-100 rounded-2xl text-left focus:ring-gold/20">
                     <SelectValue placeholder="Provision..." />
                   </SelectTrigger>
-                  <SelectContent className="max-h-[600px] w-[420px]">
+                  <SelectContent className="max-h-[600px] w-[420px]" side="bottom" align="start">
                     {sections.map(s => (
                       <SelectItem key={s.id} value={s.id} className="py-4">
                         <div className="flex items-start gap-3">
@@ -168,14 +168,14 @@ export default function Browse() {
             </div>
           </div>
 
-          <div className="flex-1 flex flex-col items-center justify-center p-12 text-center opacity-10 select-none pointer-events-none grayscale">
+          <div className="flex-1 flex flex-col items-center justify-center p-12 text-center opacity-10 select-none pointer-events-none grayscale hidden lg:flex">
              <Scale className="h-24 w-24 text-slate-900 mb-6" />
              <p className="text-[10px] uppercase tracking-[0.4em] font-black text-slate-900">Legislative Registry</p>
           </div>
         </aside>
 
-        {/* Full-width Main Content Area - Absolute Transparency */}
-        <main className="flex-1 overflow-auto bg-white">
+        {/* Full-width Main Content Area - Greyer Background for Contrast */}
+        <main className="flex-1 overflow-auto bg-[#F1F5F9]/60">
           <div className="w-full max-w-7xl py-16 px-12 md:px-24 mx-auto">
             {selectedNode ? (
               <SectionViewer

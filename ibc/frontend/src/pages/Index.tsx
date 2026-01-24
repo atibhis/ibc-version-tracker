@@ -73,7 +73,7 @@ const Index = () => {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 text-gold text-[9px] font-black uppercase tracking-[0.2em] mb-8 border border-gold/20">
               <CalendarDays className="h-3.5 w-3.5" />
-              <span>Registry Status: {stats.latestDate}</span>
+              <span>Updated on: {stats.latestDate}</span>
             </div>
 
             <h1 className="font-serif text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-[0.95] tracking-tighter">
@@ -150,7 +150,7 @@ const Index = () => {
                </div>
                <div>
                   <span className="font-serif font-black text-3xl block tracking-tighter">IBC Registry</span>
-                  <span className="text-gold text-[10px] uppercase font-bold tracking-[0.3em]">Version Control System</span>
+                  <span className="text-gold text-[10px] uppercase font-bold tracking-[0.3em]">Version Control</span>
                </div>
             </div>
             
@@ -162,8 +162,8 @@ const Index = () => {
           </div>
           
           <div className="flex flex-col md:flex-row items-center justify-between text-slate-500 text-xs font-medium uppercase tracking-[0.1em]">
-             <p>&copy; {new Date().getFullYear()} IBC Version Tracker. Official Legislative Registry.</p>
-             <p>Developed for Legal Research & Compliance.</p>
+             <p>&copy; {new Date().getFullYear()} IBC Version Tracker.</p>
+             <p>Developed for Legal Research.</p>
           </div>
         </div>
       </footer>

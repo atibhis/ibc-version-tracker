@@ -31,11 +31,13 @@ export interface SectionDetail {
 export const api = {
   getSources: async () => {
     const res = await fetch(`${API_BASE_URL}/laws/`);
+    if (!res.ok) throw new Error("Failed to fetch sources");
     return res.json();
   },
   
   getHierarchy: async (sourceCode: string): Promise<Node[]> => {
     const res = await fetch(`${API_BASE_URL}/hierarchy/${sourceCode}`);
+    if (!res.ok) throw new Error("Failed to fetch hierarchy");
     return res.json();
   },
   
@@ -45,11 +47,13 @@ export const api = {
       url.searchParams.append("version_code", version_code);
     }
     const res = await fetch(url.toString());
+    if (!res.ok) throw new Error("Content not found for this version");
     return res.json();
   },
   
   getVersions: async (sourceCode: string): Promise<Version[]> => {
     const res = await fetch(`${API_BASE_URL}/content/versions/${sourceCode}`);
+    if (!res.ok) throw new Error("Failed to fetch versions");
     return res.json();
   }
 };

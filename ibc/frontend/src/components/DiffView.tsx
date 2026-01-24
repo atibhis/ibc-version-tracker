@@ -1,5 +1,7 @@
 import { useMemo } from "react";
 import { cn } from "@/lib/utils";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface DiffViewProps {
   oldText: string;
@@ -92,12 +94,20 @@ export function DiffView({ oldText, newText, mode, oldLabel, newLabel }: DiffVie
                   !line.content && "h-6"
                 )}
               >
-                <span className={cn(
-                  "legal-text whitespace-pre-wrap",
-                  line.type === "removed" && "text-amendment-remove"
+                <div className={cn(
+                  "legal-text prose-sm max-w-none break-words",
+                  line.type === "removed" && "text-amendment-remove line-through opacity-70"
                 )}>
-                  {line.content}
-                </span>
+                  <ReactMarkdown 
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      p: ({node, ...props}) => <span {...props} />
+                    }}
+                  >
+                    {line.content || ""}
+                  </ReactMarkdown>
+                  {!line.content && <span className="block h-5" />}
+                </div>
               </div>
             ))}
           </div>
@@ -120,12 +130,20 @@ export function DiffView({ oldText, newText, mode, oldLabel, newLabel }: DiffVie
                   !line.content && "h-6"
                 )}
               >
-                <span className={cn(
-                  "legal-text whitespace-pre-wrap",
+                <div className={cn(
+                  "legal-text prose-sm max-w-none break-words",
                   line.type === "added" && "text-amendment-add"
                 )}>
-                  {line.content}
-                </span>
+                  <ReactMarkdown 
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      p: ({node, ...props}) => <span {...props} />
+                    }}
+                  >
+                    {line.content || ""}
+                  </ReactMarkdown>
+                  {!line.content && <span className="block h-5" />}
+                </div>
               </div>
             ))}
           </div>
@@ -168,13 +186,20 @@ export function DiffView({ oldText, newText, mode, oldLabel, newLabel }: DiffVie
             {line.type === "removed" && "−"}
             {line.type === "unchanged" && " "}
           </span>
-          <span className={cn(
-            "legal-text whitespace-pre-wrap",
+          <div className={cn(
+            "legal-text prose-sm max-w-none inline-block align-middle",
             line.type === "added" && "text-amendment-add",
-            line.type === "removed" && "text-amendment-remove line-through"
+            line.type === "removed" && "text-amendment-remove line-through opacity-70"
           )}>
-            {line.content}
-          </span>
+            <ReactMarkdown 
+              remarkPlugins={[remarkGfm]}
+              components={{
+                p: ({node, ...props}) => <span {...props} />
+              }}
+            >
+              {line.content || ""}
+            </ReactMarkdown>
+          </div>
         </div>
       ))}
     </div>
