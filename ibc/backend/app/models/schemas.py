@@ -4,37 +4,37 @@ from uuid import UUID
 from pydantic import BaseModel
 
 class DocumentSourceRead(BaseModel):
-    id: UUID
+    id: str
     code: str
     name: str
     description: Optional[str]
 
 class DocumentTypeRead(BaseModel):
-    id: UUID
+    id: str
     name: str
     slug: str
 
 class DocumentVersionRead(BaseModel):
-    id: UUID
+    id: str
     version_code: str
     release_date: date
     is_base: bool
 
 class HierarchyNodeRead(BaseModel):
-    id: UUID
+    id: str
     node_type: str
     label: str
     identifier: str
     sort_order: int
-    parent_id: Optional[UUID]
+    parent_id: Optional[str]
 
 class HierarchyNodeWithChildren(HierarchyNodeRead):
     children: List["HierarchyNodeWithChildren"] = []
 
 class NodeContentRead(BaseModel):
-    id: UUID
-    node_id: UUID
-    version_id: UUID
+    id: str
+    node_id: str
+    version_id: str
     raw_content: str
     context_data: Dict[str, Any]
     version: DocumentVersionRead

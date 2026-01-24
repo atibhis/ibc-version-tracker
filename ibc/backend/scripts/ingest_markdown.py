@@ -1,20 +1,28 @@
+import sys
 import json
 import os
 from pathlib import Path
-from uuid import UUID, uuid4
 from datetime import date, datetime
+from typing import Optional, List, Dict, Any
 from sqlmodel import Session, select
-from app.core.database import engine
+
+# Add parent directory to path so 'app' module can be found
+sys.path.append(str(Path(__file__).parent.parent))
+
+from app.core.database import engine, init_db
 from app.models.domain import DocumentSource, DocumentType, DocumentVersion, HierarchyNode, NodeContent
 
 # Configuration
-HIERARCHY_FILE = "/Users/atibhisharma/Documents/XKDR/IBC/ibc-version-tracker/ibc/frontend/public/law_hierarchy.json"
+HIERARCHY_FILE = "/Users/atibhisharma/Documents/XKDR/IBC/ibc-version-tracker/ibc/law_hierarchy.json"
 CONTENT_DIR = "/Users/atibhisharma/Documents/XKDR/IBC/ibc-version-tracker/ibc/frontend/public/content"
 
 def to_folder_name(key: str) -> str:
     return key.replace("-", "_")
 
 def ingest_data():
+    # Make sure tables exist
+    init_db()
+    
     with open(HIERARCHY_FILE, "r") as f:
         hierarchy = json.load(f)
 
@@ -23,6 +31,7 @@ def ingest_data():
         source = session.exec(select(DocumentSource).where(DocumentSource.code == "ibc")).first()
         if not source:
             source = DocumentSource(
+                id="ibc",
                 code="ibc",
                 name="Insolvency and Bankruptcy Code",
                 description="The Insolvency and Bankruptcy Code, 2016"
@@ -34,7 +43,7 @@ def ingest_data():
         # 2. Seed Document Type
         doc_type = session.exec(select(DocumentType).where(DocumentType.slug == "act")).first()
         if not doc_type:
-            doc_type = DocumentType(name="Act", slug="act")
+            doc_type = DocumentType(id="act", name="Act", slug="act")
             session.add(doc_type)
         
         # 3. Seed Document Versions
@@ -53,7 +62,9 @@ def ingest_data():
                 month = int(v_code[4:])
                 release_date = date(year, month, 1)
                 
+                v_id = f"ibc:v:{v_code}"
                 version = DocumentVersion(
+                    id=v_id,
                     source_id=source.id,
                     version_code=v_code,
                     release_date=release_date,
@@ -66,7 +77,7 @@ def ingest_data():
             version_map[v_code] = version.id
 
         # 4. Ingest Hierarchy Recursively
-        def process_node(parent_id: Optional[UUID], node_type: str, identifier: str, label: str, sort_order: int):
+        def process_node(parent_id: Optional[str], node_type: str, identifier: str, label: str, sort_order: int):
             node = session.exec(
                 select(HierarchyNode)
                 .where(HierarchyNode.source_id == source.id)
@@ -76,7 +87,15 @@ def ingest_data():
             ).first()
             
             if not node:
+                # Use parent_id in key to ensure uniqueness (e.g. preliminary chapters in different parts)
+                n_id = f"ibc:{node_type}:{identifier}"
+                if parent_id:
+                    # Strip the 'ibc:' prefix from parent for a cleaner slug
+                    p_slug = parent_id.replace("ibc:", "")
+                    n_id = f"ibc:{p_slug}:{node_type}:{identifier}"
+                
                 node = HierarchyNode(
+                    id=n_id,
                     source_id=source.id,
                     parent_id=parent_id,
                     node_type=node_type,
@@ -172,7 +191,10 @@ def ingest_data():
             ).first()
             
             if not existing_content:
+                # Structured ID for content: law:section:v:version
+                nc_id = f"{node.id}:v:{v_code}"
                 new_content = NodeContent(
+                    id=nc_id,
                     node_id=node.id,
                     version_id=version_map[v_code],
                     raw_content=content_text,
