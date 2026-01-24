@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+sqlmodel
+psycopg2-binary
+alembic
+pydantic-settings
+python-multipart
+python-dotenv
+asyncpg
+jinja2
+python-slugify

@@ -1,0 +1,47 @@
+# OS files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project Dependencies
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+dist-ssr/
+*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python / Backend
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+ENV/
+env/
+.fastapi/
+
+# Database
+backend/data.db
+**/*.db
+**/*.sqlite3
+
+# Content management
+# Un-comment the line below if you don't want to commit the raw markdown files
+# ibc/content/
