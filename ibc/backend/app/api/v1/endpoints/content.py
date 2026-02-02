@@ -54,8 +54,8 @@ async def get_node_details(
     
     # Get content for requested version or the earliest one if not specified
     if not version_code:
-        # Default to base version (201611)
-        version_code = "201611"
+        # Default to base version (A0)
+        version_code = "A0"
         
     requested_version = session.exec(
         select(DocumentVersion)

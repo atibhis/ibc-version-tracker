@@ -39,22 +39,22 @@ export const journeyEvents: TimelineEvent[] = [
 ];
 
 export const partMetadata: Record<string, { description: string }> = {
-  "part-1": {
+  "P1": {
     description: "Establishes the foundational definitions, scope, and application of the Code across India."
   },
-  "part-2": {
+  "P2": {
     description: "Comprehensive framework for corporate insolvency resolution process (CIRP) and liquidation proceedings."
   },
-  "part-3": {
+  "P3": {
     description: "Framework for individual insolvency resolution, fresh start process, and bankruptcy proceedings."
   },
-  "part-4": {
+  "P4": {
     description: "Regulatory framework for insolvency professionals, professional agencies, and information utilities."
   },
-  "part-5": {
+  "P5": {
     description: "General provisions including offences, penalties, appeals, and transitional provisions."
   },
-  "schedules": {
+  "SCH": {
     description: "Amendments to other laws and procedural details supplementary to the main Code."
   }
 };

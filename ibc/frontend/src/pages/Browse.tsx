@@ -94,14 +94,14 @@ export default function Browse() {
 
       <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
         {/* Navigation Sidebar - Clean & Extra Wide for Long Titles */}
-        <aside className="w-full lg:w-[460px] border-b lg:border-b-0 lg:border-r border-slate-100 bg-white flex-shrink-0 flex flex-col shadow-[0_1px_0_0_#f1f5f9] lg:shadow-[1px_0_0_0_#f1f5f9]">
-          <div className="p-10 border-b border-slate-50 space-y-10">
+        <aside className="w-full lg:w-[460px] border-b lg:border-b-0 lg:border-r border-slate-100 bg-white flex-shrink-0 flex flex-col shadow-[0_1px_0_0_#f1f5f9] lg:shadow-[1px_0_0_0_#f1f5f9] overflow-y-auto">
+          <div className="p-8 border-b border-slate-50 space-y-6 pb-60">
             <div>
               <h2 className="font-serif text-3xl font-black text-slate-900 tracking-tighter">Explorer</h2>
               <p className="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em] mt-1">Law Registry Navigator</p>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {/* PART */}
               <div className="space-y-2.5">
                 <label className="text-[9px] uppercase font-black text-slate-400 px-1 tracking-wider">1. Select Part</label>
@@ -109,7 +109,7 @@ export default function Browse() {
                   <SelectTrigger className="w-full min-h-14 h-auto py-3 bg-slate-50 border-slate-100 rounded-2xl text-left focus:ring-accent/20">
                     <SelectValue placeholder="Part..." className="line-clamp-2" />
                   </SelectTrigger>
-                  <SelectContent className="max-h-[600px] w-[420px]" side="bottom" align="start">
+                  <SelectContent className="max-h-[400px] w-[420px]" side="bottom" align="start">
                     {parts.map(p => (
                       <SelectItem key={p.id} value={p.id} className="py-4">
                         <div className="flex items-start gap-3">
@@ -130,7 +130,7 @@ export default function Browse() {
                     <SelectTrigger className="w-full min-h-14 h-auto py-3 bg-slate-50 border-slate-100 rounded-2xl text-left focus:ring-accent/20">
                       <SelectValue placeholder="Chapter..." className="line-clamp-2" />
                     </SelectTrigger>
-                    <SelectContent className="max-h-[600px] w-[420px]" side="bottom" align="start">
+                    <SelectContent className="max-h-[400px] w-[420px]" side="bottom" align="start">
                       {chapters.map(c => (
                         <SelectItem key={c.id} value={c.id} className="py-4">
                           <div className="flex items-start gap-3">
@@ -153,7 +153,7 @@ export default function Browse() {
                   <SelectTrigger className="w-full h-14 bg-slate-50 border-slate-100 rounded-2xl text-left focus:ring-gold/20">
                     <SelectValue placeholder="Provision..." />
                   </SelectTrigger>
-                  <SelectContent className="max-h-[600px] w-[420px]" side="bottom" align="start">
+                  <SelectContent className="max-h-[400px] w-[420px]" side="bottom" align="start">
                     {sections.map(s => (
                       <SelectItem key={s.id} value={s.id} className="py-4">
                         <div className="flex items-start gap-3">
@@ -176,7 +176,7 @@ export default function Browse() {
 
         {/* Full-width Main Content Area - Greyer Background for Contrast */}
         <main className="flex-1 overflow-auto bg-[#F1F5F9]/60">
-          <div className="w-full max-w-7xl py-16 px-12 md:px-24 mx-auto">
+          <div className="w-full max-w-[1600px] py-16 px-6 md:px-12 mx-auto">
             {selectedNode ? (
               <SectionViewer
                 node={selectedNode}

@@ -178,6 +178,37 @@
     font-family: var(--font-body);
   }
 
+  .legal-text ul {
+    list-style-type: none !important;
+    padding-left: 1.5rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .legal-text ul li {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  /* Word-level diff styles */
+  .legal-text ins {
+    text-decoration: none;
+    background-color: hsl(var(--amendment-add-bg));
+    color: hsl(var(--amendment-add));
+    font-weight: 600;
+    padding: 0 1px;
+    border-radius: 2px;
+  }
+
+  .legal-text del {
+    text-decoration: line-through;
+    color: hsl(var(--amendment-remove));
+    opacity: 0.7;
+    background-color: hsl(var(--amendment-remove-bg));
+    padding: 0 1px;
+    border-radius: 2px;
+  }
+
   .section-marker {
     @apply font-serif font-semibold text-primary;
   }

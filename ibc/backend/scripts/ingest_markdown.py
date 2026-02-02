@@ -12,29 +12,30 @@ sys.path.append(str(Path(__file__).parent.parent))
 from app.core.database import engine, init_db
 from app.models.domain import DocumentSource, DocumentType, DocumentVersion, HierarchyNode, NodeContent
 
+BASE_DIR = Path(__file__).parent.parent.parent
+
+import argparse
+
 # Configuration
-HIERARCHY_FILE = "/Users/atibhisharma/Documents/XKDR/IBC/ibc-version-tracker/ibc/law_hierarchy.json"
-CONTENT_DIR = "/Users/atibhisharma/Documents/XKDR/IBC/ibc-version-tracker/ibc/frontend/public/content"
+DEFAULT_HIERARCHY = "/Users/atibhisharma/Documents/XKDR/IBC/ibc-version-tracker/ibc/law_hierarchy.json"
+DEFAULT_CONTENT_DIR = "/Users/atibhisharma/Documents/XKDR/IBC/ibc-version-tracker/ibc/frontend/public/content"
 
-def to_folder_name(key: str) -> str:
-    return key.replace("-", "_")
-
-def ingest_data():
+def ingest_data(source_code: str, law_name: str, hierarchy_path: str, content_path: str, update_existing: bool = False):
     # Make sure tables exist
     init_db()
     
-    with open(HIERARCHY_FILE, "r") as f:
+    with open(hierarchy_path, "r") as f:
         hierarchy = json.load(f)
 
     with Session(engine) as session:
         # 1. Seed Document Source
-        source = session.exec(select(DocumentSource).where(DocumentSource.code == "ibc")).first()
+        source = session.exec(select(DocumentSource).where(DocumentSource.code == source_code)).first()
         if not source:
             source = DocumentSource(
-                id="ibc",
-                code="ibc",
-                name="Insolvency and Bankruptcy Code",
-                description="The Insolvency and Bankruptcy Code, 2016"
+                id=source_code,
+                code=source_code,
+                name=law_name,
+                description=f"Automated registry for {law_name}"
             )
             session.add(source)
             session.commit()
@@ -48,21 +49,19 @@ def ingest_data():
         
         # 3. Seed Document Versions
         version_map = {} # code -> version_id
-        for v_code, v_info in hierarchy["versions"].items():
-            version = session.exec(
-                select(DocumentVersion)
-                .where(DocumentVersion.source_id == source.id)
-                .where(DocumentVersion.version_code == v_code)
-            ).first()
+        for v_code, v_data in hierarchy["versions"].items():
+            # v_code is A0, A1, etc.
+            v_id = f"{source_code}.{v_code}"
+            version = session.get(DocumentVersion, v_id)
             
             if not version:
-                is_base = (v_info == "base")
+                is_base = (v_code == "A0")
                 # Parse date from yyyymm
-                year = int(v_code[:4])
-                month = int(v_code[4:])
+                v_date_str = v_data["date"]
+                year = int(v_date_str[:4])
+                month = int(v_date_str[4:])
                 release_date = date(year, month, 1)
                 
-                v_id = f"ibc:v:{v_code}"
                 version = DocumentVersion(
                     id=v_id,
                     source_id=source.id,
@@ -78,22 +77,25 @@ def ingest_data():
 
         # 4. Ingest Hierarchy Recursively
         def process_node(parent_id: Optional[str], node_type: str, identifier: str, label: str, sort_order: int):
-            node = session.exec(
-                select(HierarchyNode)
-                .where(HierarchyNode.source_id == source.id)
-                .where(HierarchyNode.parent_id == parent_id)
-                .where(HierarchyNode.identifier == identifier)
-                .where(HierarchyNode.node_type == node_type)
-            ).first()
+            # Compact ID format: source_code.P1.C1.S1
+            # identifier is already P1, C1, S1 etc.
+            
+            # Prefix types for ID readability
+            prefix = ""
+            if node_type == "part": prefix = "" # already has P
+            elif node_type == "chapter": prefix = "" # already has C
+            elif node_type == "section": prefix = "S"
+            elif node_type == "schedule": prefix = "SCH"
+            
+            node_slug = f"{prefix}{identifier}"
+            if parent_id:
+                n_id = f"{parent_id}.{node_slug}"
+            else:
+                n_id = f"{source_code}.{node_slug}"
+
+            node = session.get(HierarchyNode, n_id)
             
             if not node:
-                # Use parent_id in key to ensure uniqueness (e.g. preliminary chapters in different parts)
-                n_id = f"ibc:{node_type}:{identifier}"
-                if parent_id:
-                    # Strip the 'ibc:' prefix from parent for a cleaner slug
-                    p_slug = parent_id.replace("ibc:", "")
-                    n_id = f"ibc:{p_slug}:{node_type}:{identifier}"
-                
                 node = HierarchyNode(
                     id=n_id,
                     source_id=source.id,
@@ -107,8 +109,9 @@ def ingest_data():
                 session.commit()
                 session.refresh(node)
             else:
-                if node.sort_order != sort_order:
+                if node.sort_order != sort_order or node.label != label:
                     node.sort_order = sort_order
+                    node.label = label
                     session.add(node)
             return node
 
@@ -122,90 +125,112 @@ def ingest_data():
                     chap_node = process_node(part_node.id, "chapter", chapter["key"], chapter["name"], idx)
                     
                     # Process Sections in Chapter
-                    for s_idx, section_num in enumerate(chapter["sections"]):
-                        process_node(chap_node.id, "section", section_num, f"Section {section_num}", s_idx)
+                    for s_idx, s_item in enumerate(chapter["sections"]):
+                        if isinstance(s_item, dict):
+                            s_num = s_item["id"]
+                            s_label = f"Section {s_num}: {s_item['name']}"
+                        else:
+                            s_num = s_item
+                            s_label = f"Section {s_num}"
+                        process_node(chap_node.id, "section", s_num, s_label, s_idx)
             
             # Process Default Sections (parts without chapters)
             if "defaultSections" in part_data:
                 node_type = "schedule" if part_key == "schedules" else "section"
-                for s_idx, section_num in enumerate(part_data["defaultSections"]):
-                    label = f"Schedule {section_num}" if node_type == "schedule" else f"Section {section_num}"
-                    process_node(part_node.id, node_type, section_num, label, s_idx)
+                for s_idx, s_item in enumerate(part_data["defaultSections"]):
+                    prefix = "Schedule" if node_type == "schedule" else "Section"
+                    if isinstance(s_item, dict):
+                        s_num = s_item["id"]
+                        s_label = f"{prefix} {s_num}: {s_item['name']}"
+                    else:
+                        s_num = s_item
+                        s_label = f"{prefix} {s_num}"
+                    process_node(part_node.id, node_type, s_num, s_label, s_idx)
 
         session.commit()
-        print("Hierarchy ingestion complete.")
+        print(f"Hierarchy ingestion for {source_code} complete.")
 
         # 5. Ingest Content from Markdown Files
-        # Filename pattern: section12_2018-06.md or schedule1_201611.md
-        content_path = Path(CONTENT_DIR)
         files_processed = 0
+        p_content = Path(content_path)
         
-        for md_file in content_path.rglob("*.md"):
-            stem = md_file.stem # e.g. section12_2018-06
-            if "_" not in stem:
-                continue
+        for md_file in p_content.rglob("*.md"):
+            stem = md_file.stem
+            if "_" not in stem: continue
                 
-            parts = stem.split("_")
-            node_info = parts[0] # section12
-            raw_v_code = parts[1] # 2018-06 or 201611
+            p_parts = stem.split("_")
+            node_info = p_parts[0] 
+            raw_v_code = p_parts[1]
             
-            # Normalize version code (2018-06 -> 201806)
             v_code = raw_v_code.replace("-", "")
+            if v_code not in version_map: continue
             
-            if v_code not in version_map:
-                print(f"Skipping {md_file.name}: version {v_code} not in hierarchy")
-                continue
-            
-            # Identify node type and number
-            if node_info.startswith("section"):
+            if node_info.startswith("S") and not node_info.startswith("SCH"):
                 n_type = "section"
-                n_id = node_info.replace("section", "")
-            elif node_info.startswith("schedule"):
+                n_id_val = node_info[1:]
+            elif node_info.startswith("SCH"):
                 n_type = "schedule"
-                n_id = node_info.replace("schedule", "")
+                n_id_val = node_info[3:]
             else:
                 continue
             
-            # Find the node in DB (across all parents since id is unique for that type/identifier combo in our simple model)
-            # A more robust search would use the folder path to narrow down parts/chapters
+            # Find the node in DB for this source
             node = session.exec(
                 select(HierarchyNode)
                 .where(HierarchyNode.source_id == source.id)
-                .where(HierarchyNode.identifier == n_id)
+                .where(HierarchyNode.identifier == n_id_val)
                 .where(HierarchyNode.node_type == n_type)
             ).first()
             
-            if not node:
-                print(f"Skipping {md_file.name}: node {n_type} {n_id} not found in hierarchy")
-                continue
-            
-            # Read content
-            with open(md_file, "r") as f:
-                content_text = f.read()
+            if not node: continue
             
             # Create NodeContent
-            existing_content = session.exec(
-                select(NodeContent)
-                .where(NodeContent.node_id == node.id)
-                .where(NodeContent.version_id == version_map[v_code])
-            ).first()
+            v_id = version_map[v_code]
+            # Content ID: ibc.P2.C2.S10.A0
+            nc_id = f"{node.id}.{v_code}"
             
+            existing_content = session.get(NodeContent, nc_id)
+            with open(md_file, "r") as f:
+                content_text = f.read()
+
             if not existing_content:
-                # Structured ID for content: law:section:v:version
-                nc_id = f"{node.id}:v:{v_code}"
                 new_content = NodeContent(
                     id=nc_id,
                     node_id=node.id,
-                    version_id=version_map[v_code],
+                    version_id=v_id,
                     raw_content=content_text,
-                    context_data={"file_path": str(md_file.relative_to(CONTENT_DIR))}
+                    context_data={"file_path": str(md_file.relative_to(content_path))}
                 )
                 session.add(new_content)
                 files_processed += 1
+            elif update_existing:
+                if existing_content.raw_content != content_text:
+                    existing_content.raw_content = content_text
+                    session.add(existing_content)
+                    files_processed += 1
         
         session.commit()
-        print(f"Content ingestion complete. Processed {files_processed} files.")
+        print(f"Content ingestion complete for {source_code}. Processed {files_processed} files.")
 
 if __name__ == "__main__":
-    from typing import Optional
-    ingest_data()
+    parser = argparse.ArgumentParser(description="Ingest Law Hierarchy and Content")
+    parser.add_argument("--source", default="ibc", help="Code for the law (e.g. ibc, constitution)")
+    parser.add_argument("--name", default="Insolvency and Bankruptcy Code", help="Full name of the law")
+    parser.add_argument("--hierarchy", default=DEFAULT_HIERARCHY, help="Path to law_hierarchy.json")
+    parser.add_argument("--content", default=BASE_DIR / "content", help="Path to markdown content folder")
+    parser.add_argument("--update", action="store_true", help="Update existing content in database if file has changed")
+    parser.add_argument("--reset", action="store_true", help="Reset hierarchy and content tables before ingestion")
+    
+    args = parser.parse_args()
+    
+    if args.reset:
+        from app.core.database import engine
+        from sqlmodel import text
+        with Session(engine) as session:
+            session.execute(text("DELETE FROM nodecontent"))
+            session.execute(text("DELETE FROM hierarchynode"))
+            session.execute(text("DELETE FROM documentversion"))
+            session.commit()
+        print("Reset hierarchy and content tables.")
+
+    ingest_data(args.source, args.name, args.hierarchy, str(args.content), args.update)

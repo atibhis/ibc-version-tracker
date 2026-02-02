@@ -20,7 +20,7 @@ interface SectionViewerProps {
 }
 
 export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
-  const [versionA, setVersionA] = useState<string>("201611");
+  const [versionA, setVersionA] = useState<string>("A0");
   const [versionB, setVersionB] = useState<string | null>(null);
   const [diffMode, setDiffMode] = useState<"inline" | "side-by-side">("side-by-side");
   const [viewMode, setViewMode] = useState<"current" | "compare">("current");
@@ -207,16 +207,71 @@ export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
         )}
       </div>
 
-      <div className="min-h-[400px] py-8 px-10 md:px-16 bg-slate-50/50 rounded-3xl border border-slate-100/50 shadow-inner">
+      <div className="min-h-[400px] py-8 px-6 md:px-10 bg-slate-50/50 rounded-3xl border border-slate-100/50 shadow-inner">
         {(loadingA || loadingB) ? (
           <div className="flex items-center justify-center h-full min-h-[200px]">
             <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
           </div>
         ) : viewMode === "current" || !versionB ? (
-          <div className="legal-text prose prose-slate max-w-none prose-headings:font-serif prose-headings:font-black prose-p:leading-relaxed prose-p:text-slate-700">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {contentA}
-            </ReactMarkdown>
+          <div className="legal-text prose prose-slate max-w-none prose-headings:font-serif prose-headings:font-black prose-p:leading-relaxed prose-p:text-slate-700 prose-p:my-0">
+            {(() => {
+              const lines = contentA.split('\n');
+              let currentPadding = 0;
+              
+              return lines.map((line, idx) => {
+                const trimmed = line.trim();
+                
+                // Handle empty lines - reset padding and provide space
+                if (!trimmed) {
+                  currentPadding = 0;
+                  return <div key={idx} className="h-4" />;
+                }
+
+                // Handle headers
+                if (trimmed.startsWith('#')) {
+                  currentPadding = 0;
+                  return (
+                    <div key={idx} className="mb-4">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {line}
+                      </ReactMarkdown>
+                    </div>
+                  );
+                }
+
+                // Detect bullet points (stars)
+                const match = line.match(/^(\s*)(\*+)\s+(.*)/);
+                let cleaned = line;
+
+                if (match) {
+                  const spaces = match[1].length;
+                  const stars = match[2].length;
+                  const level = Math.floor(spaces / 4) + stars;
+                  currentPadding = level * 1.5;
+                  cleaned = match[3];
+                } else {
+                  // Inheritance logic: keep currentPadding for lines that obviously follow a bullet
+                  // if there was no blank line.
+                }
+
+                return (
+                  <div 
+                    key={idx} 
+                    style={{ paddingLeft: `${currentPadding}rem` }} 
+                    className="py-0.5 min-h-[1.5rem]"
+                  >
+                    <ReactMarkdown 
+                      remarkPlugins={[remarkGfm]}
+                      components={{
+                        p: ({ children }) => <p className="m-0 leading-relaxed text-slate-700">{children}</p>
+                      }}
+                    >
+                      {`\n${cleaned}`}
+                    </ReactMarkdown>
+                  </div>
+                );
+              });
+            })()}
           </div>
         ) : (
           <>
