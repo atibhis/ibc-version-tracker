@@ -14,6 +14,7 @@ export interface Node {
   identifier: string;
   sort_order: number;
   children?: Node[];
+  context?: string;
 }
 
 export interface NodeContent {
@@ -41,8 +42,9 @@ export const api = {
     return res.json();
   },
   
-  getSectionDetail: async (sourceCode: string, identifier: string, version_code?: string): Promise<SectionDetail> => {
+  getSectionDetail: async (sourceCode: string, identifier: string, version_code?: string, node_type: string = "section"): Promise<SectionDetail> => {
     const url = new URL(`${API_BASE_URL}/content/${sourceCode}/${identifier}`);
+    url.searchParams.append("node_type", node_type);
     if (version_code) {
       url.searchParams.append("version_code", version_code);
     }
@@ -55,5 +57,11 @@ export const api = {
     const res = await fetch(`${API_BASE_URL}/content/versions/${sourceCode}`);
     if (!res.ok) throw new Error("Failed to fetch versions");
     return res.json();
+  },
+
+  async search(query: string, sourceCode: string = "ibc"): Promise<Node[]> {
+    const response = await fetch(`${API_BASE_URL}/search/?q=${encodeURIComponent(query)}&source_code=${sourceCode}`);
+    if (!response.ok) throw new Error("Search failed");
+    return response.json();
   }
 };

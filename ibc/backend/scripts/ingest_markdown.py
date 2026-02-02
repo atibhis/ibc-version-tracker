@@ -109,9 +109,10 @@ def ingest_data(source_code: str, law_name: str, hierarchy_path: str, content_pa
                 session.commit()
                 session.refresh(node)
             else:
-                if node.sort_order != sort_order or node.label != label:
+                if node.sort_order != sort_order or node.label != label or node.node_type != node_type:
                     node.sort_order = sort_order
                     node.label = label
+                    node.node_type = node_type
                     session.add(node)
             return node
 
@@ -136,7 +137,7 @@ def ingest_data(source_code: str, law_name: str, hierarchy_path: str, content_pa
             
             # Process Default Sections (parts without chapters)
             if "defaultSections" in part_data:
-                node_type = "schedule" if part_key == "schedules" else "section"
+                node_type = "schedule" if part_key == "SCH" else "section"
                 for s_idx, s_item in enumerate(part_data["defaultSections"]):
                     prefix = "Schedule" if node_type == "schedule" else "Section"
                     if isinstance(s_item, dict):
@@ -158,6 +159,7 @@ def ingest_data(source_code: str, law_name: str, hierarchy_path: str, content_pa
             stem = md_file.stem
             if "_" not in stem: continue
                 
+            parent_dir = md_file.parent.name # P1, SCH, C1 etc.
             p_parts = stem.split("_")
             node_info = p_parts[0] 
             raw_v_code = p_parts[1]
@@ -175,12 +177,18 @@ def ingest_data(source_code: str, law_name: str, hierarchy_path: str, content_pa
                 continue
             
             # Find the node in DB for this source
-            node = session.exec(
-                select(HierarchyNode)
-                .where(HierarchyNode.source_id == source.id)
-                .where(HierarchyNode.identifier == n_id_val)
-                .where(HierarchyNode.node_type == n_type)
-            ).first()
+            # More specific query using part/chapter hints from path if needed
+            statement = select(HierarchyNode).where(
+                HierarchyNode.source_id == source.id,
+                HierarchyNode.identifier == n_id_val,
+                HierarchyNode.node_type == n_type
+            )
+            
+            # If parent_dir is like P1, SCH, we can filter by ID containing that
+            if parent_dir.startswith("P") or parent_dir == "SCH":
+                statement = statement.where(HierarchyNode.id.contains(f".{parent_dir}."))
+            
+            node = session.exec(statement).first()
             
             if not node: continue
             

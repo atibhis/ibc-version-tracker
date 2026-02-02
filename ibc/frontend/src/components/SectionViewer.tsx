@@ -48,7 +48,7 @@ export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
     const fetchContentA = async () => {
       setLoadingA(true);
       try {
-        const detail = await api.getSectionDetail(sourceCode, node.identifier, versionA);
+        const detail = await api.getSectionDetail(sourceCode, node.identifier, versionA, node.node_type);
         setContentA(detail.current_content?.raw_content || `> [!NOTE]\n> This provision was not yet introduced or had no content in the ${getVersionLabel(versionA)} version.`);
       } catch (err) {
         setContentA(`> [!WARNING]\n> Provision not found in the ${getVersionLabel(versionA)} version. It may have been introduced in a later amendment.`);
@@ -90,9 +90,6 @@ export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
     <div className="animate-fade-in">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6">
         <div>
-          <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
-            <span>{node.node_type} {node.identifier}</span>
-          </div>
           <h2 className="font-serif text-3xl font-black text-slate-900 tracking-tight">
             {node.label}
           </h2>

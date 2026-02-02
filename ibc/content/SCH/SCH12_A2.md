@@ -1,5 +1,3 @@
-# Schedule 12
-
 "THE TWELFTH SCHEDULE
 [See clause (d) of section 29A]
 ACTS FOR THE PURPOSES OF CLAUSE (d) OF SECTION 29A

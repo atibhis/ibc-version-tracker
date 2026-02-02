@@ -4,7 +4,8 @@ import { Header } from "@/components/Header";
 import { SectionViewer } from "@/components/SectionViewer";
 import { api } from "../services/api";
 import type { Node } from "../services/api";
-import { FileText, BookOpen, Folder, Loader2, Scale } from "lucide-react";
+import { FileText, BookOpen, Folder, Loader2, Scale, Search, X } from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 import {
   Select,
@@ -24,6 +25,12 @@ export default function Browse() {
   const [partId, setPartId] = useState<string>("");
   const [chapterId, setChapterId] = useState<string>("");
   const [sectionId, setSectionId] = useState<string>("");
+
+  // Search State
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<Node[]>([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [showResults, setShowResults] = useState(false);
 
   useEffect(() => {
     const loadHierarchy = async () => {
@@ -80,6 +87,66 @@ export default function Browse() {
     if (node) setSelectedNode(node);
   }, [sectionId, sections]);
 
+  // Handle Search
+  useEffect(() => {
+    if (searchQuery.length < 2) {
+      setSearchResults([]);
+      setShowResults(false);
+      return;
+    }
+
+    const delayDebounceFn = setTimeout(async () => {
+      setIsSearching(true);
+      try {
+        const results = await api.search(searchQuery, sourceCode);
+        setSearchResults(results);
+        setShowResults(true);
+      } catch (err) {
+        console.error("Search failed", err);
+      } finally {
+        setIsSearching(false);
+      }
+    }, 300);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchQuery, sourceCode]);
+
+  // Helper to find path to node
+  const handleSearchResultClick = (node: Node) => {
+    // Find absolute path
+    for (const part of hierarchy) {
+      if (part.id === node.id) {
+        setPartId(part.id);
+        break;
+      }
+      if (part.children) {
+        for (const child of part.children) {
+          if (child.id === node.id) {
+            setPartId(part.id);
+            if (child.node_type === "chapter") {
+              setChapterId(child.id);
+            } else {
+              setSectionId(child.id);
+            }
+            break;
+          }
+          if (child.children) {
+            for (const subChild of child.children) {
+              if (subChild.id === node.id) {
+                setPartId(part.id);
+                setChapterId(child.id);
+                setSectionId(subChild.id);
+                break;
+              }
+            }
+          }
+        }
+      }
+    }
+    setSearchQuery("");
+    setShowResults(false);
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -102,6 +169,65 @@ export default function Browse() {
             </div>
 
             <div className="space-y-6">
+              {/* SEARCH BAR */}
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                  {isSearching ? (
+                    <Loader2 className="h-4 w-4 animate-spin text-slate-400" />
+                  ) : (
+                    <Search className="h-4 w-4 text-slate-400 group-focus-within:text-accent transition-colors" />
+                  )}
+                </div>
+                <Input
+                  placeholder="Search titles or content..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-slate-50 border-slate-100 rounded-2xl pl-11 h-12 focus-visible:ring-accent/20 focus-visible:border-accent text-sm"
+                />
+                {searchQuery && (
+                  <button 
+                    onClick={() => setSearchQuery("")}
+                    className="absolute inset-y-0 right-4 flex items-center"
+                  >
+                    <X className="h-4 w-4 text-slate-400 hover:text-slate-600" />
+                  </button>
+                )}
+
+                {/* Search Results Overlay */}
+                {showResults && (
+                  <div className="absolute z-50 mt-2 w-full bg-white rounded-2xl border border-slate-100 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+                    <div className="max-h-[400px] overflow-y-auto">
+                      {searchResults.length > 0 ? (
+                        <div className="py-2">
+                          <div className="px-4 py-2 text-[10px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-50">
+                            Search Results ({searchResults.length})
+                          </div>
+                          {searchResults.map((res) => (
+                            <button
+                              key={res.id}
+                              onClick={() => handleSearchResultClick(res)}
+                              className="w-full px-4 py-3 text-left hover:bg-slate-50 flex items-start gap-3 transition-colors group"
+                            >
+                              <FileText className="h-4 w-4 text-slate-400 mt-1 flex-shrink-0 group-hover:text-accent" />
+                              <div className="space-y-0.5">
+                                <div className="text-sm font-bold text-slate-900 leading-snug">{res.label}</div>
+                                <div className="text-[10px] uppercase font-black text-slate-400 tracking-wider">
+                                  {res.context || `${res.node_type} ${res.identifier}`}
+                                </div>
+                              </div>
+                            </button>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="p-12 text-center">
+                          <Search className="h-8 w-8 text-slate-100 mx-auto mb-4" />
+                          <p className="text-sm text-slate-400">No results found for "{searchQuery}"</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
               {/* PART */}
               <div className="space-y-2.5">
                 <label className="text-[9px] uppercase font-black text-slate-400 px-1 tracking-wider">1. Select Part</label>
