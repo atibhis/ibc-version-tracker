@@ -36,7 +36,7 @@ export function PartCard({ part, index }: PartCardProps) {
     <Link
       to={`/browse/ibc`}
       className={cn(
-        "group block bg-white rounded-3xl border border-slate-100 p-8",
+        "group block bg-card rounded-3xl border border-border p-8",
         "hover:border-accent/40 hover:shadow-2xl transition-all duration-500",
         "animate-fade-in relative"
       )}
@@ -44,31 +44,31 @@ export function PartCard({ part, index }: PartCardProps) {
     >
       <div className="relative z-10 space-y-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary text-white font-serif text-xl font-black shadow-xl ring-4 ring-slate-50 transition-transform group-hover:scale-110 duration-500">
+          <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary text-primary-foreground font-serif text-xl font-black shadow-xl ring-4 ring-background transition-transform group-hover:scale-110 duration-500">
              {shortId}
           </div>
-          <div className="p-2 rounded-full border border-slate-100 group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-300 text-slate-200">
+          <div className="p-2 rounded-full border border-border group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-accent transition-all duration-300 text-muted-foreground/30">
              <ChevronRight className="h-5 w-5" />
           </div>
         </div>
 
         <div>
-          <h3 className="font-serif text-2xl font-black text-slate-900 mb-3 leading-tight group-hover:text-accent transition-colors">
+          <h3 className="font-serif text-2xl font-black text-foreground mb-3 leading-tight group-hover:text-accent transition-colors">
             {part.label}
           </h3>
-          <p className="text-sm text-slate-500 font-light leading-relaxed line-clamp-3">
+          <p className="text-sm text-muted-foreground font-light leading-relaxed line-clamp-3">
             {metadata.description}
           </p>
         </div>
 
-        <div className="flex items-center gap-6 pt-6 border-t border-slate-50">
+        <div className="flex items-center gap-6 pt-6 border-t border-border">
           {chapterCount > 0 && (
-            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.1em] text-slate-400">
+            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.1em] text-muted-foreground">
               <BookOpen className="h-4 w-4 text-accent" />
               <span>{chapterCount} Chapters</span>
             </div>
           )}
-          <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.1em] text-slate-400">
+          <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.1em] text-muted-foreground">
             <Layers className="h-4 w-4 text-gold" />
             <span>{totalSections} Provisions</span>
           </div>

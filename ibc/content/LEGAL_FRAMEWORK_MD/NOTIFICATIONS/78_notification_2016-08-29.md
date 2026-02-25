@@ -1,0 +1,319 @@
+---
+ocr_quality_score: 71.79
+rejection_ratio: 0.2821
+source_file: 78_notification_2016-08-29.pdf
+type: notification
+---
+
+
+
+**EXTRAORDINARY**
+**PART II—Section 3—Sub-section (i)**
+
+
+**PUBLISHED BY AUTHORITY**
+
+**la- 597]** **ubZ fnYyh] lkseokj] vxLr 29] 2016@Hkkæ 7] 1938**
+**No. 597]** **NEW DELHI, MONDAY, AUGUST 29, 2016/BHADRA 7, 1938**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4197 GI/2016 (1)
+
+
+2 THE  GAZETTE  OF INDIA : EXTRAORDINARY [PART II—SEC. 3(i)]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4 THE  GAZETTE  OF INDIA : EXTRAORDINARY [PART II—SEC. 3(i)]
+
+
+
+
+
+
+
+
+
+
+
+**MINISTRY OF CORPORATE AFFAIRS**
+
+**NOTIFICATION**
+
+New Delhi, the 29th August, 2016
+
+**G.S.R. 831(E).** —In exercise of the powers conferred in clause (zd) of the sub-section (2) of section 239 read
+with sub-section (5) of section 189 of the Insolvency and Bankruptcy Code, 2016 (31 of 2016), the Central Government
+hereby makes the following rules, namely:—
+
+**1.** **Short title and Commencement.-** (1) These rules may be called the Insolvency and Bankruptcy Board of India
+(Salary, Allowances and other Terms and Conditions of Service of Chairperson and members) Rules, 2016.
+
+(2) They shall come into force on the date of publication of this notification in the Official Gazette.
+
+**2.** **Definitions.-** (1) In these rules, unless the context otherwise requires
+(a) “Code” means the Insolvency and Bankruptcy Code, 2016;
+
+(b) “Board” means the Insolvency and Bankruptcy Board of India established under sub-section (1) of
+section 3 of the Code;
+
+(c) “Chairperson” means the Chairperson of the Board appointed under clause (a) of sub-section (1) of
+section 189 of the Code;
+
+(d) “whole-time member” means the member of the Board appointed under clause (d) of sub-section
+(1) of section 189 of the Code;
+
+(2) Words and expressions used in these rules and not defined, but defined in the Code shall have the meanings
+respectively assigned to them in the Code.
+
+
+
+
+**3.** **Terms and conditions of service of Chairperson and members.-** (1)The Chairperson and the whole-time
+member shall be a person who shall not have any financial or other interests as are likely to affect prejudicially
+his functions as such Chairperson or member.
+
+(2) The Chairperson and whole-time member appointed to fill-up a causal vacancy shall hold office for the
+remainder period of the term of the Chairperson or, as the case may be, whole-time member in whose place
+he is appointed.
+
+(3) The Chairperson and whole-time member shall not accept any employment before the expiry of a period of
+one year from the date of demitting the office in the Board, except with the previous sanction of the Central
+Government.
+
+**4.** **Pay. –** (1) The Chairperson shall have an option to receive pay as admissible to a Secretary to the Government
+of India or a consolidated salary of Rs 4,50,000 per month.
+
+(2) Every whole-time member shall have an option to receive pay as admissible to an Additional Secretary to the
+Government of India or a consolidated salary of Rs 3,75,000 per month.
+
+(3) In the case of an appointment of a person as the Chairperson or a whole-time member shall have an option to
+receive pay as admissible to a Secretary or Additional Secretary to the Government of India respectively, who
+has retired from service under the Central Government or the State Government and who is in receipt of, or has
+received, or has become entitled to receive any retirement benefits by way of pension, gratuity, employer’s
+contribution to the Contributory Provident Fund or other Funds or retirement benefits, the pay and allowances of
+such Chairperson or member, as the case may be, shall be reduced by gross amount of pension and pension
+equivalent of gratuity or employer’s contribution to the Contributory Provident Fund or any other form of
+retirement benefits, if any, drawn or to be drawn by him.
+
+**5.** **Dearness Allowance.–** The Chairperson and a whole-time member who has opted pay as admissible to a
+Secretary or an Additional Secretary to the Government of India respectively shall receive dearness allowance at
+the rates admissible to a Group ‘A’ Officer of the Central Government of equivalent rank.
+
+**6.** **Entertainment Allowance.–** The Chairperson and a whole-time member shall be entitled to entertainment
+allowance subject to a maximum of Rs. 6,000 per annum.
+
+**7.** **Leave.-** The Chairperson and a whole-time member shall be entitled to a leave as follows:
+(1) Earned Leave at the rate of thirty days for every completed calendar year of service:
+
+Provided that the leave account shall be credited with earned leave in advance in two installments of fifteen days
+each from the first day of January and first day of July of every calendar year:
+
+Provided further that the earned leave at the credit at the close of previous half year shall be carried forward to
+the next half year, subject to the condition that the leave so carried forward plus credited for half year do not
+exceed three hundred days.
+
+(2) Half Pay Leave on medical certificate or on private affairs at the rate of twenty days in respect of each
+completed year of service to be credited in advance in two installments of ten days each on first day of January
+and first day of July of every calendar year and leave salary for half pay leave shall be equivalent to half of the
+leave salary admissible during he earned leave;
+
+(3) Leave on Half Pay may be commuted to full pay leave at the discretion of the Chairperson or a wholetime member, if it is taken on medical grounds and is supported by a Medical Certificate by a competent
+medical authority;
+
+(4) Casual Leave at the rate of eight days in a calendar year;
+
+(5) Restricted holidays at the rate of two days in a calendar year availing to their choice;
+
+(6) Extra-ordinary leave without pay and allowances up to a maximum period of one hundred and eighty
+days in one term of office ; and
+
+(7) Extra-ordinary leave without pay and allowances in a calendar year out of the holidays notified by the
+Central Government.
+
+**8.** **Leave Sanctioning Authority.-** The Chairperson shall be the authority competent to sanction leave to a wholetime member and the President of India shall be the authority competent to sanction leave to the Chairperson.
+
+**9.** **Provident Fund.-** The Chairperson and a whole-time member shall be entitled to subscribe to the Contributory
+Pension Fund.
+
+
+6 THE  GAZETTE  OF INDIA : EXTRAORDINARY [PART II—SEC. 3(i)]
+
+
+**10.** **Travelling Allowance.-** (1) The Chairperson, while on tour or on transfer (including the journey undertaken to
+join the Board or on the expiry of his term with the Board proceeds to his home town) shall be entitled to the
+travelling allowances, daily allowances, transportation of personal effects and other similar matters at the same
+scale and at the same rate as are prescribed for a Secretary to the Government of India.
+
+
+(2) A whole-time member while on tour or on transfer (including the journey undertaken to join the Board or on
+the expiry of his term with the Board proceeds to his home town) shall be entitled to the travelling allowances,
+daily allowances, transportation of personal effects and other similar matters at the same scale and at the same
+rates as are prescribed for Group ‘A’ officer of equivalent rank of the Central Government.
+
+
+**11.** **Leave Travel Concession.–** (1) The Chairperson shall be entitled to Leave Travel Concession at the same rates
+and at the same scales as are applicable to a Secretary to the Government of India.
+
+
+(2) A whole-time member shall be entitled to Leave Travel Concession at the same rates and at the same scales
+as are applicable to a Group ‘A’ officer of the equivalent rank of the Central Government.
+
+
+(3) Other conditions relating to Leave Travel Concession shall be governed by the rules relating to Group ‘A’
+officers of the same rank of the Central Government.
+
+
+**12.** **Accommodation.–** (1) The Chairperson and a whole-time member shall be entitled to rent free unfurnished
+house and the Board shall approve the type of accommodation, purchase price or rent of the house to be used for
+residence by the Chairperson or a whole-time member.
+
+
+(2) Charges for water, electricity and fuel consumed in the house shall be borne by the occupant of the house.
+
+
+(3) Where the Chairperson or a whole-time member occupies his own accommodation or makes private
+arrangements, he shall be entitled to a compensation comprising of ten per cent of his Basic Pay and House Rent
+Allowance as admissible to a Group ’A’ officer of the Government of India.
+
+
+(4) Nothing in this rule shall apply to the Chairperson and a whole-time member who has opted a consolidated
+salary of Rs. 4,50,000/- per month or 3,75,000/- respectively.
+
+
+**13.** **Conveyance.–** (1) The Chairperson and a whole-time member shall be entitled to a staff car of the Board for
+official purpose.
+
+
+(2) No passenger vehicle shall be purchased by the Board and requirement of vehicles shall be met by hiring.
+
+
+(3) Nothing in this rule shall apply to the Chairperson and a whole-time member who has opted a consolidated
+salary of Rs. 4,50,000/-per month or 3,75,000/-respectively.
+
+
+**14.** **Bonus.–** The Chairperson and a whole-time member shall not be entitled to any bonus.
+
+**15.** **Sitting Fees and Board’s Meetings.–** The Chairperson and a whole time member shall not be entitled to any
+sitting fees for attending meetings of the Board.
+
+
+**16.** **Encashment of Leave.–** The Chairperson or a whole time member shall be entitled to the encashment of leave
+in accordance with the rules applicable to Group ‘A’ officers of the Central Government, subject to a maximum
+encashment of three hundred days, including the leave encashed before superannuation.
+
+
+**17.** **Facilities for medical treatment.–** The Chairperson and a whole-time member shall be covered under the
+Health Scheme as may be prescribed by the Central Government.
+
+
+**18.** **Residuary Provisions.–** Matters relating to the conditions of service of the Chairperson and a whole-time
+member with respect to which no express provision has been made in these rules shall be referred in each case,
+to the Central Government for its decision and the decision of the Central Government thereon shall be final.
+
+
+**19.** **Terms and Conditions of Services of Part-time Members.–** (1) A part-time member shall be a person who
+shall not have any such financial or other interest as is likely to affect prejudicially his functions as a part-time
+member.
+
+
+(2) Every part -time member shall hold office for such period, not exceeding three years, as may be specified in
+the order of his appointment, but shall be eligible for reappointment.
+
+
+(3) A part-time member appointed to fill up a casual vacancy, shall hold office for the reminder period of the
+term of whole-time or part-time member in whose place he is appointed.
+
+
+
+
+**20.** **Fee and Allowances of Part-time Members.-** (1) A part-time member shall be entitled to receive remuneration
+by way of a fee of rupees one thousand only for each meeting of the Board attended by him.
+
+(2) A part-time member while on tour (including the journey undertaken to attend a meeting of the Board) shall
+also be entitled to travelling allowance and daily allowances at the same rates and scale as are applicable to
+an Additional Secretary to the Government of India.
+
+**21.** **Power to Relax.–** The Central Government shall have power to relax the provisions of any of these rules with
+respect to any class or category of person.
+
+[F. No. 30/3/2016-Insolvency]
+
+AMARDEEP S. BHATIA, Jt. Secy.
+
+
+# HARINDR A KUMAR
+
+
+
+Digitally signed by
+HARINDRA KUMAR
+Date: 2016.09.02
+15:50:21 +05'30'
+
+
+
+~~Uploaded by Dte. of Printing at Government of India Press, Ring Road, Mayapuri, New Delhi-110064~~
+
+and Published by the Controller of Publications, Delhi-110054.
+

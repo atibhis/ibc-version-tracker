@@ -1,0 +1,741 @@
+---
+ocr_quality_score: 100
+rejection_ratio: 0.0
+source_file: 9_regulation_2025-05-19.pdf
+type: regulation
+---
+
+**INSOLVENCY AND BANKRUPTCY BOARD OF INDIA (INSOLVENCY**
+**RESOLUTION PROCESS FOR PERSONAL GUARANTORS TO CORPORATE**
+
+**DEBTORS) REGULATIONS, 2019**
+
+
+**[AMENDED UPTO 19.05.2025]**
+
+**No. IBBI/2019-20/GN/REG050.-** In exercise of the powers conferred by clause (t) of subsection (1) of section 196, sub-section (1) and clauses (zn), (zo), (zp) and (zq) of sub-section (2)
+of section 240 read with clause (e) of section 2 and section 60 of the Insolvency and Bankruptcy
+Code, 2016 (31 of 2016), the Insolvency and Bankruptcy Board of India hereby makes the
+following regulations, namely: 
+**CHAPTER I**
+
+
+**PRELIMINARY**
+**1. Short title and commencement.**
+(1) These regulations may be called the Insolvency and Bankruptcy Board of India (Insolvency
+Resolution Process for Personal Guarantors to Corporate Debtors) Regulations, 2019.
+
+(2) They shall come into force from the 1 [st] day of December, 2019.
+
+**2. Application.**
+These regulations shall apply to insolvency resolution process for personal guarantors to
+corporate debtors.
+
+**3. Definitions.**
+In these regulations, unless the context otherwise requires, **-**
+
+
+(a) “associate” in relation to a creditor, a resolution professional or professionals engaged by
+resolution professional, as the case may be, shall have the same meaning as assigned to it in
+relation to a debtor in sub-section (2) of section 79;
+
+(b) “Code” means the Insolvency and Bankruptcy Code, 2016 (31 of 2016);
+
+(c) “corporate debtor” means a corporate person for whom the guarantor has given a personal
+guarantee;
+
+(d) “electronic means” means an authorised and secured computer programme which is
+capable of producing confirmation of sending communication to the participant entitled to
+receive such communication at the last electronic mail address provided by such participant
+and keeping record of such communication.
+
+(e) “form” means a form appended to these regulations;
+
+(f) “participant” means a person entitled to attend a meeting of creditors and includes a
+creditor, the guarantor, the resolution professional, and any other person authorised through
+a resolution by creditors to attend such meeting;
+
+(g) “resolution process” means the insolvency resolution process of a guarantor;
+
+(h) “resolution process commencement date” means the date of admission of an application
+under section 100;
+
+
+Page **1** of **13**
+
+
+(i) “resolution process costs” shall mean
+(i) fees payable to the resolution professional;
+(ii) expenses incurred on and by the resolution professional for carrying out the resolution
+process, including the fee of professionals engaged, if any;
+(iii) finances raised for the resolution process, and costs incurred in raising such finances;
+and
+(iv) such other costs directly relatable to the resolution process,
+to the extent approved or ratified by the creditors;
+
+(j) “section” means section of the Code;
+
+(k) words and expressions used and not defined in these regulations but defined in the Code
+and the Insolvency and Bankruptcy (Application to Adjudicating Authority for Insolvency
+Resolution Process for Personal Guarantors to Corporate Debtors) Rules, 2019 shall have the
+respective meanings assigned to them in the Code and the said rules.
+
+
+**CHAPTER II**
+
+
+**GENERAL**
+
+
+**4. Eligibility of resolution professional** _**.**_
+(1) An insolvency professional shall be eligible to be appointed as a resolution professional for
+a resolution process, if(a) he, the insolvency professional entity of which he is a partner or a director, and all the
+partners and directors of the said insolvency professional entity are independent of the guarantor **;**
+(b) he is not subject to any ongoing disciplinary proceeding or a restraint order of the Board or
+of the insolvency professional agency of which he is a professional member; and
+(c) the insolvency professional entity of which he is a partner or a director, or any other partner
+or director of such insolvency professional entity does not represent any party in the resolution
+process.
+
+_Explanation.-_ For the purposes of this sub-regulation, (i) a person shall be considered independent of the guarantor, if he(a) is not an associate of the guarantor; [1] [and]
+(b) is not a related party of the corporate debtor [2] [.]
+3[***]
+
+
+(ii) the expression “related party” shall have the meaning assigned to it in sub-section (24) of
+section 5.
+
+
+(2) An insolvency professional, other than who has filed an application under section 94 or 95
+on behalf of a guarantor or a creditor, as the case may be, shall provide a written consent in
+Form A to the Adjudicating Authority before his appointment as resolution professional in a
+resolution process.
+
+
+1 Inserted by Notification No. IBBI/2023-24/GN/REG107, dated 31st January 2024 (w.e.f. 31.01.2024).
+
+
+2 Substituted by Notification No. IBBI/2023-24/GN/REG107, dated 31st January 2024 (w.e.f. 31.01.2024).
+Before substitution, it stood as “;and”.
+
+
+3 Omitted by Notification No. IBBI/2023-24/GN/REG107, dated 31st January 2024 (w.e.f. 31.01.2024). Prior to
+omission, it stood as “(c) has not acted or is not acting as interim resolution professional, resolution professional
+or liquidator in respect of the corporate debtor;”
+
+
+Page **2** of **13**
+
+
+**5. Preservation of records.**
+The resolution professional shall preserve a physical as well as an electronic copy of the records
+relating to resolution process of the guarantor as per the record retention schedule, as may be
+communicated by the Board in consultation with insolvency professional agencies.
+
+**6.** **Debt counselling.**
+Debt counselling in relation to resolution process may be provided to a guarantor by such person
+as may be recognised by the Board or the Central Government, as the case may be.
+
+
+**CHAPTER III**
+
+
+**REGISTRATION OF CLAIMS**
+
+
+**7. Submission and verification of claim.**
+(1) A creditor shall submit its claim along with proof to the resolution professional in Form B,
+on or before the last date mentioned in the public notice issued under sub-section (1) of section
+102.
+
+(2) The creditor shall bear the costs relating to submission of the claim, including proof, under
+these regulations.
+
+(3) A creditor may prove its claim on the basis of
+(a) records available in an information utility, or
+(b) any other documentary evidence which substantiates the existence of claim.
+
+(4) The resolution professional may call for such other evidence or clarification as he deems fit
+from a creditor for substantiating the whole or part of its claim.
+
+(5) The resolution professional shall verify each claim as soon as it is received and prepare a list
+of creditors under sub-section (1) of section 104 within thirty days from the date of public notice.
+
+(6) Where the amount claimed by a creditor is not precise due to any reason, the resolution
+professional shall make the best estimate of the amount of the claim based on the information
+available with him.
+
+(7) The resolution professional shall modify the amounts of claims admitted, including the
+estimates of claims made under sub-regulation (6), as soon as may be practicable, after he comes
+across additional information warranting such revision, till the approval of a repayment plan by
+the creditors.
+
+(8) The claims denominated in foreign currency shall be valued in Indian currency at the official
+exchange rate as on the resolution process commencement date.
+
+
+_Explanation.–_ For the purposes of this sub-regulation, “official exchange rate” means the
+reference rate published by the Reserve Bank of India or derived from such reference rate.
+
+**8. Transfer of debt due to creditors.**
+(1) Where a creditor assigns or transfers the debt to any person during the resolution process
+period, both parties shall provide the resolution professional the terms of such assignment or
+transfer, and the identity and details of the assignee or transferee.
+
+
+Page **3** of **13**
+
+
+(2) The resolution professional shall notify each creditor and the Adjudicating Authority of any
+resultant change in the list of creditors within two days of such change.
+
+**9. List of creditors.**
+(1) The list of creditors under sub-section (1) of section 104 shall contain the names of creditors,
+amount claimed, amount admitted and security interest, if any, in respect of such claims.
+
+(2) The resolution professional shall 
+(a) make the list of creditors available for inspection by the persons who submitted claims
+
+with proof;
+(b) serve a copy of the list of creditors to the guarantor;
+(c) make available the list of creditors on the website, if any, of the guarantor;
+(d) present the list of creditors at the meeting of creditors; and
+(e) file a certified copy of the list of creditors with the Adjudicating Authority along with
+
+the repayment plan.
+
+**10. Statement of affairs.**
+(1) The resolution professional shall prepare a statement of affairs of the guarantor for the
+purposes of clause (b) of sub-section (3) of section 107.
+
+(2) The statement of affairs shall include the following information of the guarantor 
+(a) assets and liabilities for the preceding three financial years and the current financial year;
+(b) details of the excluded assets and excluded debts;
+(c) income statement for the preceding three financial years and the current financial year;
+(d) income-tax returns filed by the guarantor, if any, for the preceding three financial years;
+(e) creditor wise amount due, broken up into secured and unsecured debts for the preceding
+
+three financial years;
+(f) details of debt owed by guarantor to his associates for the preceding three financial years;
+(g) guarantees given in relation to any of his debts, and whether any of the guarantors is an
+
+associate of the guarantor; and
+(h) details of the financial statements for the business owned by the guarantor, or of the firm
+
+in which he is a partner, as the case may be, for the preceding three financial years, if
+applicable.
+
+
+**CHAPTER IV**
+
+
+**MEETINGS OF CREDITORS AND VOTING**
+
+
+**11. Meeting of creditors.**
+(1) A creditor, who is included in the list of creditors, shall be entitled to participate in the
+meetings of creditors.
+
+(2) The voting share of each creditor shall be in proportion to the debt owed to such creditor.
+
+(3) The resolution professional shall convene the first meeting of creditors in accordance with
+sub-section (1) of section 107 and shall convene the meeting, by giving such notice to the other
+participants as decided by the creditors, which shall not less than forty-eight hours.
+
+(4) The resolution professional shall convene a meeting of creditors on a request by creditors
+having thirty-three percent of voting share of creditors.
+
+
+Page **4** of **13**
+
+
+(5) The notice under this regulation shall be served on every participant at the address provided
+to the resolution professional in accordance with regulation 12.
+
+(6) Unless otherwise provided in the Code, any decision of the creditors shall require approval
+of more than fifty percent of voting share of the creditors who voted.
+
+
+**12. Contents of the notice for a meeting** _**.**_
+(1) The notice convening the meeting of creditors shall inform the participants of the venue, the
+time, the date of the meeting and of the options available to (i) participants to attend the meeting either in person, through video conferencing, or through a
+proxy; and
+(ii) creditors to cast vote in person, through a proxy, by electronic means, or by electronic proxy,
+as the case may be.
+
+(2) The notice of the meeting shall carry the agenda, which shall include the following(a) list of matters to be discussed;
+(b) list of issues to be voted upon;
+(c) relevant documents in relation to the matters to be discussed and issues to be voted upon.
+
+
+(3) If an option to attend the meeting through video conferencing is made available to the
+participants, the notice of the meeting shall (a) state the process and the manner for attending the meeting;
+(b) provide the login ID and the details of a facility for generating password for access to the
+meeting in a secure manner; and
+(c) provide contact details of the person who shall address the queries connected with the video
+conferencing.
+
+(4) If an option to cast vote by electronic means is made available to the creditors, the notice of
+the meeting shall (a) state the process and the manner of casting vote by such means;
+(b) provide the login ID and the details of a facility for generating password for access to the
+electronic means for casting vote in a secure manner; and
+(c) provide contact details of the person who shall address the queries connected with the
+electronic means.
+
+**13. Quorum.**
+(1) A meeting of creditors shall be quorate if creditors representing at least thirty-three percent
+of voting share are present in person, by proxy or through video conferencing:
+
+
+Provided that the creditors in a meeting may modify the percentage of voting share required
+for quorum in respect of any future meetings of the creditors.
+
+
+(2) Where a meeting of creditors could not be held for want of quorum, unless the creditors have
+previously decided otherwise, the meeting shall automatically stand adjourned to the same time
+and place on the next day and on that day, no quorum shall be required.
+
+**14. Conduct of meeting.**
+(1) The resolution professional shall preside over the meeting of creditors.
+
+
+(2) At the commencement of a meeting, the resolution professional shall take a roll call, when
+every participant, including those attending by proxy or through video conferencing, shall state,
+for the record, the following 
+
+Page **5** of **13**
+
+
+(a) his name;
+(b) the capacity in which he is attending;
+(c) the creditor he is representing, if applicable; and
+(d) that he has received the agenda and all the relevant material for the meeting.
+
+
+(3) After the roll call, the resolution professional shall inform the participants of the names of
+all persons who are present for the meeting and confirm if the required quorum is complete.
+
+(4) The resolution professional shall ensure that the required quorum is present throughout the
+meeting.
+
+(5) From the commencement of the meeting till its conclusion, no person, other than the
+participants and any other person whose presence is required by the resolution professional,
+shall be allowed access to the meeting, without the permission of the resolution professional.
+
+**15. Voting by creditors.**
+(1) The resolution professional shall take a vote of the creditors present in the meeting on any
+item listed for voting after discussion on the same.
+
+(2) At the conclusion of the meeting, the resolution professional shall prepare minutes of the
+meeting, including the names of creditors, who voted for, against or abstained from voting on
+the items put to vote in the meeting.
+
+(3) The resolution professional shall(a) circulate the minutes of the meeting by electronic means to all participants of the meeting
+within forty-eight hours of the conclusion of the meeting, and
+(b) seek a vote on the items listed for voting in the meeting from the creditors who were not
+present in the meeting or did not vote at the meeting, by electronic means, where the voting shall
+be kept open for at least twenty-four hours from the circulation of the minutes as per clause (a).
+
+(4) At the end of the voting period, the resolution professional shall record the decision arrived
+at on the items along with the names of creditors who voted for, against or abstained from voting
+on the items, after considering the voting at the meeting and through the electronic means.
+
+(5) The resolution professional shall circulate a copy of the record made under sub-regulation
+(4) to all participants within twenty-four hours of the conclusion of the voting.
+
+**16. Voting by proxy.**
+(1) A creditor, who is entitled to vote at a meeting of creditors, shall be entitled to appoint an
+individual, who shall not be an associate of the guarantor, as a proxy to attend and vote on its
+behalf.
+
+(2) For the purpose of sub-regulation (1), a creditor shall deliver Form C, duly completed to the
+resolution professional at least twenty-four hours prior to the meeting of creditors.
+
+(3) A proxy may vote by electronic means on behalf of the creditor.
+
+
+**CHAPTER V**
+
+
+Page **6** of **13**
+
+
+**REPAYMENT PLAN**
+
+
+**17. Contents of repayment plan.**
+(1) The repayment plan shall provide the following (a) the term of the repayment plan and its implementation schedule, including the amounts to
+
+be repaid and dates of repayment to creditors;
+(b) the source of funds that will be used to pay resolution process costs and that such payment
+
+shall be made in priority over any creditor;
+(c) a minimum budget for the duration of the repayment plan, to cover the reasonable expenses
+
+of the guarantor and members of his immediate family to the extent they are dependent on
+him, provided that at least ten percent of the realisable income of the guarantor shall be
+utilised for repayment of debts;
+(d) financing required for implementation of the repayment plan;
+(e) if the guarantor has any business, the manner in which it is proposed to be conducted during
+
+the course of the repayment plan, and the role of the resolution professional;
+(f) the manner in which funds held for the purposes of the repayment plan, invested or otherwise
+
+dealt with, pending repayment to creditors;
+(g) the functions which are to be undertaken by the resolution professional, including
+
+supervision and implementation of the repayment plan;
+(h) variation of onerous terms of a contract or transaction involving the guarantor;
+(i) the details of excluded assets and excluded debts of the guarantor; and
+(j) terms and conditions for the discharge of the guarantor.
+
+(2) The repayment plan may provide for the following(a) transfer or sale of all or part of the assets of the guarantor along with the mode and manner
+
+of such sale;
+(b) administration or disposal of any funds of the guarantor;
+(c) satisfaction or modification of any security interest;
+(d) reduction in the amount payable to creditors;
+(e) curing or waiving of any breach of a debt due from the guarantor;
+(f) modification in the terms of repayment of any debt due from the guarantor;
+(g) part of the income of the guarantor to be used for the repayment of the debt, and the manner
+
+of calculating the income of the guarantor;
+(h) the manner in which funds held for the purpose of repayment to creditors, and not so repaid
+
+at the end of the repayment plan, are to be dealt with; and
+(i) such other matters as may be required by the creditors.
+
+
+**4[17A. Meeting of the creditors.**
+The resolution professional shall place the repayment plan as mentioned under section 105 in a
+meeting of the creditors for its consideration.
+Provided that where no repayment plan has been received within such period as stipulated under
+section 106, the resolution professional shall notify the same in a meeting of creditors.]
+
+
+**5[17B. Non-submission of repayment plan**
+Where no repayment plan has been prepared by the debtor under section 105 of the Code, the
+resolution professional shall file an application, with the approval of creditors, before the
+
+
+4 Inserted by Notification No. IBBI/2023-24/GN/REG107, dated 31 [st] January 2024 (w.e.f. 31.01.2024).
+
+
+5 Inserted by Notification No. IBBI/2025-26/GN/REG125, dated 19 [th] May, 2025 (w.e.f. 19-05-2025).
+
+
+Page **7** of **13**
+
+
+Adjudicating Authority intimating the non-submission of a repayment plan and seek appropriate
+directions.]
+
+**18. Purchase of assets by certain persons.**
+(1) The following persons shall not purchase or acquire any interest in the property of guarantor,
+directly or indirectly, without permission of the Adjudicating Authority –
+(a) the resolution professional or any partner or director of the insolvency professional entity of
+
+which the resolution professional is a partner or director;
+(b) any professional appointed by the resolution professional for the resolution process;
+(c) any creditor;
+(d) any company where the guarantor or a creditor is a promoter or director;
+(e) any associate of the guarantor, creditor or resolution professional.
+
+(2) The Adjudication Authority may set aside purchase or acquisition made contrary to the
+provisions of this regulation and may make such order as it may deem fit.
+
+**19. Filing with the Adjudicating Authority.**
+(1) The resolution professional shall file the repayment plan, as approved by the creditors, along
+with the report mentioned in sections 106 or 112, as the case may be, with the Adjudicating
+Authority on or before completion of one hundred and twenty days from the resolution process
+commencement date.
+
+(2) The resolution professional shall provide the copies of the documents filed with the
+Adjudicating Authority under sub-regulation (1) to the guarantor and the creditors, within three
+days from the date of such filing.
+
+**20. Breach of repayment plan by the guarantor.**
+(1) If in the opinion of the resolution professional, the guarantor has failed in implementation of
+the repayment plan, the resolution professional shall, within three days of knowledge of such
+failure, issue a notice to the guarantor identifying the failure and requiring him, within fifteen
+days of receipt of the notice, to(a) address such failure if it can be addressed, or
+(b) provide an explanation for the failure.
+
+(2) If the guarantor, within the period specified under sub-regulation (1), (a) addresses the failure in implementation of the repayment plan; or
+(b) provides a satisfactory explanation for such failure,
+the resolution professional shall report the failure to creditors within seven days of the date of
+failure addressed or explanation provided for such failure.
+
+(3) In cases not covered under sub-regulation (2), the resolution professional may apply to the
+Adjudicating Authority under sub-section (2) of section 116 for directions, if he is of the opinion
+that the failure will affect the implementation of the repayment plan.
+
+**21. Application for discharge order.**
+(1) The resolution professional shall, for the purpose of discharge order, file an application along
+with copies of the notice and report under section 117 to the Adjudicating Authority under
+section 119.
+
+(2) On consideration of the notice and the report under sub-section (1) of section 117, the
+Adjudicating Authority may pass the discharge order.
+
+
+Page **8** of **13**
+
+
+**22. Non-cooperation by guarantor.**
+In the event of non-cooperation of the guarantor at any time during the resolution process period
+or during the implementation of the repayment plan, the resolution professional shall prepare a
+statement to this effect and file the same with the Adjudicating Authority for appropriate
+directions.
+
+
+**FORM** **A**
+WRITTEN CONSENT TO ACT AS RESOLUTION PROFESSIONAL
+_(Under regulation 4(2) of the Insolvency and Bankruptcy Board of India (Insolvency_
+_Resolution Process for Personal Guarantors to Corporate Debtors) Regulations, 2019)_
+
+_[Date]_
+To
+The Adjudicating Authority
+
+[ _Name of Bench_ ]
+
+From
+
+[ _Name of the Insolvency Professional_ ]
+
+[ _Registration number of the Insolvency Professional_ ]
+
+[ _Address of the Insolvency Professional registered with the Board_ ]
+
+**Subject: Written consent to act as resolution professional in the matter of [** _**name of**_
+_**guarantor**_ **].**
+
+1. I, [ _name_ ], an insolvency professional enrolled with [ _name of insolvency professional agency_ ]
+and registered with the Board, note that I have been proposed to be appointed as resolution
+professional for the resolution process of [ _name of the_ _guarantor_ ].
+
+2. In accordance with regulation 4(2) of the Insolvency and Bankruptcy Board of India
+(Insolvency Resolution Process for Personal Guarantors to Corporate Debtors) Regulations,
+2019, I hereby give consent to the proposed appointment for the resolution process of [ _name of_
+_the_ guarantor]
+
+3. I declare and affirm as under: (a) I am registered with the Board as an insolvency professional.
+(b) I am not subject to any disciplinary proceedings initiated by the Board or the insolvency
+professional agency.
+(c) I do not suffer from any disability to act as a resolution professional.
+(d) I am eligible to be appointed as resolution professional of the guarantor under regulation 3
+of the Insolvency and Bankruptcy Board of India (Insolvency Resolution Process for Personal
+Guarantors to Corporate Debtors) Regulations, 2019 and other applicable provisions of the Code
+and regulations.
+(e) I shall make the disclosures in accordance with the code of conduct for insolvency
+professionals as set out in the Insolvency and Bankruptcy Board of India (Insolvency
+Professionals) Regulations, 2016.
+(f) I am having the following processes in hand:
+
+
+
+
+
+
+
+
+
+
+|Sl.<br>No.|Role as|No. of processes on the<br>date of consent|
+|---|---|---|
+|1|Interim Resolution Professional||
+|2|Resolution Professional of:<br>a. Corporate debtors||
+
+
+
+Page **9** of **13**
+
+
+|Col1|b.Personal guarantors, individuals or<br>partnership firms|Col3|
+|---|---|---|
+|3|Liquidator of:<br>a. Liquidation Process<br>b. Voluntary Liquidation Process||
+|4|Bankruptcy Trustee||
+|5|Authorised Representative||
+|6|Any other (_please state_)||
+
+
+Date:
+Place:
+
+( _Signature of Insolvency Professional_ )
+
+Registration No.…..
+**FORM** **B**
+CLAIM WITH PROOF BY A CREDITOR
+( _Under regulation 7(1) of the Insolvency and Bankruptcy Board of India (Insolvency_
+_Resolution Process for Personal Guarantors to Corporate Debtors) Regulations, 2019_ )
+
+[ _Date_ ]
+To
+
+[ _Name of the Resolution Professional_ ]
+
+[ _Address as set out in public announcement_ ]
+
+From
+
+[ _Name and address of the creditor_ ]
+
+**Subject** : Submission of claim with proof in the matter of [ _name of guarantor_ ].
+
+Madam/Sir,
+
+[ _Name of the creditor_ ], hereby submits the claim with proof in respect of the resolution process
+of [ _name of guarantor_ ]. The details for the same are set out below:
+
+
+
+
+
+
+
+|1.|Title and full name of creditor|Col3|Col4|Col5|Col6|Col7|Col8|
+|---|---|---|---|---|---|---|---|
+|2.|Identification number of creditor|Aadhaar<br>Number|PAN|PAN|CIN|CIN|GSTIN|
+|2.|Identification number of creditor|||||||
+|3.|Address|Present|Present|Permanent|Permanent|Business|Business|
+|3.|Address|||||||
+|4.|Email|||||||
+|5.|Total amount of claim<br>(Including any interest as on the resolution<br>process commencement date)|<br>|<br>|<br>|<br>|<br>|<br>|
+|6.|Details of documents by reference to which<br>the debt is substantiated|<br>|<br>|<br>|<br>|<br>|<br>|
+|7.|Details of any dispute, as well as the record<br>of such dispute with respect to claim (if any)|<br> <br>|<br> <br>|<br> <br>|<br> <br>|<br> <br>|<br> <br>|
+|8.|Details of how debt was incurred and the<br>date when such debt was incurred|<br>|<br>|<br>|<br>|<br>|<br>|
+|9.|Details of any mutual credit, mutual debts,<br>or other mutual dealings between the<br>guarantor and the creditor, which may be<br>set-off against the claim|<br> <br> <br>|<br> <br> <br>|<br> <br> <br>|<br> <br> <br>|<br> <br> <br>|<br> <br> <br>|
+
+
+Page **10** of **13**
+
+
+|10.|Details of any retention of title<br>arrangements in respect of goods or<br>properties to which the claim refers|Col3|Col4|
+|---|---|---|---|
+|11.|Details of the bank account to which the<br>amount of the claim or any part thereof can<br>be transferred pursuant to a repayment plan<br>(Account Number, IFS Code, Branch and<br>Bank)|<br> <br> <br> <br>|<br> <br> <br> <br>|
+|12.|Details of any security held (including value<br>and date when it was given)|<br>|<br>|
+|13.|If you are a secured creditor, tick the<br>applicable box in the right column relating<br>to forfeiture of right to enforce security<br>during the period of the repayment plan,<br>which will determine the voting share as per<br>section 110 of the Code|<br> <br> <br> <br> <br>`□` I agree to forfeit my right to enforce my<br>security_[insert description]_ during the<br>period of the repayment plan.<br>`□` I do not agree to forfeit my right to<br>enforce<br>my<br>security<br>_[insert_<br>_description]_ during the period of the<br>repayment plan.|<br> <br> <br> <br> <br>`□` I agree to forfeit my right to enforce my<br>security_[insert description]_ during the<br>period of the repayment plan.<br>`□` I do not agree to forfeit my right to<br>enforce<br>my<br>security<br>_[insert_<br>_description]_ during the period of the<br>repayment plan.|
+|14.|(i) Amount claimed by me in the corporate<br>insolvency resolution process / liquidation<br>process of the corporate debtor<br> <br>(ii) The amount admitted by the resolution<br>professional / liquidator of said process<br> <br>(iii) Amount realised by me in the said<br>process, if any|<br> <br> <br> <br>|<br> <br> <br> <br>|
+|15.|Following<br>information<br>regarding<br>the<br>guarantor (to the extent known)-|<br> <br>|<br> <br>|
+|15.|Assets of the guarantor|Assets of the guarantor|Assets of the guarantor|
+|15.|Business of the guarantor|Business of the guarantor|Business of the guarantor|
+|15.|Firms in which guarantor is a partner|Firms in which guarantor is a partner|Firms in which guarantor is a partner|
+|15.|Bank account details of the guarantor|Bank account details of the guarantor|Bank account details of the guarantor|
+|15.|Name, age and address of spouse, children,<br>parents and siblings of the guarantor|Name, age and address of spouse, children,<br>parents and siblings of the guarantor|Name, age and address of spouse, children,<br>parents and siblings of the guarantor|
+|Signature of creditor or person authorised to act on his behalf<br>[_Please enclose the authorisation document if this form is being submitted on behalf of a creditor_]|Signature of creditor or person authorised to act on his behalf<br>[_Please enclose the authorisation document if this form is being submitted on behalf of a creditor_]|Signature of creditor or person authorised to act on his behalf<br>[_Please enclose the authorisation document if this form is being submitted on behalf of a creditor_]||
+|Name in block letters|Name in block letters|Name in block letters|Name in block letters|
+|Address of person signing|Address of person signing|Address of person signing|Address of person signing|
+
+
+**DECLARATION**
+I, [ _name of creditor_ ], currently residing at [ _insert address_ ], hereby declare and state as follows:1. [ _Name of guarantor_ ], the _guarantor_ was, at the resolution process commencement date,
+being the [ _date_ ] of [ _year_ ] _,_ indebted to me to the sum of Rs. [ _insert amount of claim_ ].
+2. In respect of my claim of the said sum or any part thereof, I have relied on the following
+documents:
+(a)
+(b)
+(c)
+(d)
+.
+.
+.
+
+
+Page **11** of **13**
+
+
+|Col1|Col2|
+|---|---|
+|3. <br>The aforesaid documents are true, valid and genuine to the best of my knowledge,|3. <br>The aforesaid documents are true, valid and genuine to the best of my knowledge,|
+|information and belief.|information and belief.|
+|4. <br>In respect of the said sum or any part thereof, I have not, nor has any person by my order,|4. <br>In respect of the said sum or any part thereof, I have not, nor has any person by my order,|
+|to my knowledge or belief, for my use, had or received any manner of satisfaction or|to my knowledge or belief, for my use, had or received any manner of satisfaction or|
+|security whatsoever, save and except the following-|security whatsoever, save and except the following-|
+||[_Please state details of any mutual credit, mutual debts, or other mutual dealings_|
+||_between the guarantor and the creditor which may be set-off against the claim_.]|
+
+
+Date:
+Place:
+
+(Signature of the creditor)
+**VERIFICATION**
+I, [ _Name of creditor_ ] the creditor hereinabove, do hereby verify that the contents of this proof
+of claim are true and correct to the best of my knowledge and belief and that no material facts
+have been concealed therefrom.
+
+Verified at ______ on this _____ day of ____ 20__
+
+(Signature of the creditor)
+
+
+**FORM C**
+PROXY FORM
+( _Under regulation 16(2) of the Insolvency and Bankruptcy Board of India (Insolvency_
+_Resolution Process for Personal Guarantors to Corporate Debtors) Regulations, 2019)_
+
+Full name of the guarantor 
+[ _Insert matter name / application number for the resolution process_ ]
+
+
+
+
+
+
+|Full name of creditor|Col2|Col3|Col4|Col5|Col6|Col7|
+|---|---|---|---|---|---|---|
+|Address|Present|Present|Permanent|Permanent|Business|Business|
+|Address|||||||
+|Identification Number|Aadhaar<br>Number|PAN|PAN|CIN|CIN|GSTIN|
+|Identification Number|||||||
+|E-mail|||||||
+
+
+
+I being [ _insert name of creditor_ ] holding [ _insert % of voting share_ ] in the debt of the guarantor,
+hereby appoint
+|1.|Full name|Col3|Col4|Col5|Col6|Col7|Col8|
+|---|---|---|---|---|---|---|---|
+|1.|Address|Present|Present|Permanent|Permanent|Business|Business|
+|1.|Address|||||||
+|1.|Identification Number|Aadhaar<br>Number|PAN|PAN|CIN|CIN|GSTIN|
+|1.|Identification Number|||||||
+|1.|E-mail|||||||
+|1.|Signature|||||||
+
+
+
+or failing him;
+
+|2.|Full name|Col3|Col4|Col5|
+|---|---|---|---|---|
+|2.|Address|Present|Permanent|Business|
+|2.|Address||||
+
+
+
+Page **12** of **13**
+
+
+|Col1|Identification Number|Aadhaar<br>Number|PAN|CIN|GSTIN|
+|---|---|---|---|---|---|
+||Identification Number|||||
+||E-mail|||||
+||Signature|||||
+
+
+as my proxy to attend and vote for me and on my behalf at the meeting of creditors to be held
+on [ _insert date and time of meeting_ ] at [ _insert venue of the meeting_ ], and at any adjournment
+thereof in respect of the matters indicated in the notice of the meeting [ _provide details of the_
+_notice_ ], as listed below
+[ _insert matters as listed in the agenda_ ]
+
+Signed this [ _insert date_ ] day of [ _insert month_ ] [ _insert year_ ]
+Signature of creditor
+Signature of proxy: .
+
+
+Page **13** of **13**
+

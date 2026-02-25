@@ -10,25 +10,29 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Columns, AlignLeft, Eye, GitCompare, ArrowRight, Loader2 } from "lucide-react";
+import { Eye, GitCompare, ArrowRight, Loader2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 
 interface SectionViewerProps {
   node: Node;
   sourceCode: string;
+  highlightTerm?: string | null;
+  initialVersion?: string | null;
 }
 
-export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
-  const [versionA, setVersionA] = useState<string>("A0");
+export function SectionViewer({ node, sourceCode, highlightTerm, initialVersion }: SectionViewerProps) {
+  const [versionA, setVersionA] = useState<string>(initialVersion || "A0");
   const [versionB, setVersionB] = useState<string | null>(null);
-  const [diffMode, setDiffMode] = useState<"inline" | "side-by-side">("side-by-side");
   const [viewMode, setViewMode] = useState<"current" | "compare">("current");
   const [versions, setVersions] = useState<Version[]>([]);
   const [contentA, setContentA] = useState<string>("");
   const [contentB, setContentB] = useState<string | null>(null);
   const [loadingA, setLoadingA] = useState(false);
   const [loadingB, setLoadingB] = useState(false);
+  const [activeHighlight, setActiveHighlight] = useState<string | null>(null);
+  const [isHighlightFading, setIsHighlightFading] = useState(false);
 
   // Fetch available versions
   useEffect(() => {
@@ -78,6 +82,31 @@ export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
     };
     fetchContentB();
   }, [node.id, versionB, sourceCode, viewMode, node.identifier, node.node_type]);
+  useEffect(() => {
+    if (highlightTerm) {
+      setActiveHighlight(highlightTerm);
+      setIsHighlightFading(false);
+      
+      // Start fading after 8 seconds
+      const fadeTimer = setTimeout(() => setIsHighlightFading(true), 8000);
+      // Remove completely after 10 seconds
+      const removeTimer = setTimeout(() => setActiveHighlight(null), 10000);
+      
+      return () => {
+        clearTimeout(fadeTimer);
+        clearTimeout(removeTimer);
+      };
+    } else {
+      setActiveHighlight(null);
+      setIsHighlightFading(false);
+    }
+  }, [highlightTerm, node.id]);
+
+  useEffect(() => {
+    if (initialVersion) {
+      setVersionA(initialVersion);
+    }
+  }, [initialVersion, node.id]);
 
   const getVersionLabel = (versionCode: string) => {
     const v = versions.find(v => v.version_code === versionCode);
@@ -90,7 +119,7 @@ export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
     <div className="animate-fade-in">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6">
         <div>
-          <h2 className="font-serif text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="font-serif text-3xl font-black text-foreground tracking-tight">
             {node.label}
           </h2>
         </div>
@@ -179,38 +208,17 @@ export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
                 </SelectContent>
               </Select>
             </div>
-
-            <div className="flex items-center gap-1 p-1 bg-background rounded-lg ml-auto">
-              <Button
-                variant={diffMode === "inline" ? "default" : "ghost"}
-                size="sm"
-                onClick={() => setDiffMode("inline")}
-                className="gap-2"
-              >
-                <AlignLeft className="h-4 w-4" />
-                Inline
-              </Button>
-              <Button
-                variant={diffMode === "side-by-side" ? "default" : "ghost"}
-                size="sm"
-                onClick={() => setDiffMode("side-by-side")}
-                className="gap-2"
-              >
-                <Columns className="h-4 w-4" />
-                Side by Side
-              </Button>
-            </div>
           </>
         )}
       </div>
 
-      <div className="min-h-[400px] py-8 px-6 md:px-10 bg-slate-50/50 rounded-3xl border border-slate-100/50 shadow-inner">
+      <div className="min-h-[400px] py-8 px-6 md:px-10 bg-secondary/30 rounded-3xl border border-border/50 shadow-inner">
         {(loadingA || loadingB) ? (
           <div className="flex items-center justify-center h-full min-h-[200px]">
             <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
           </div>
         ) : viewMode === "current" || !versionB ? (
-          <div className="legal-text prose prose-slate max-w-none prose-headings:font-serif prose-headings:font-black prose-p:leading-relaxed prose-p:text-slate-700 prose-p:my-0">
+          <div className="legal-text prose prose-slate max-w-none prose-headings:font-serif prose-headings:font-black prose-p:leading-relaxed prose-p:text-foreground/80 prose-p:my-0">
             {(() => {
               const lines = contentA.split('\n');
               let currentPadding = 0;
@@ -259,11 +267,22 @@ export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
                   >
                     <ReactMarkdown 
                       remarkPlugins={[remarkGfm]}
+                      rehypePlugins={[rehypeRaw]}
                       components={{
-                        p: ({ children }) => <p className="m-0 leading-relaxed text-slate-700">{children}</p>
+                        p: ({ children }) => <p className="m-0 leading-relaxed text-foreground/80">{children}</p>
                       }}
                     >
-                      {`\n${cleaned}`}
+                      {activeHighlight && activeHighlight.length > 2
+                        ? `\n${cleaned}`.replace(
+                            new RegExp(`(${activeHighlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'),
+                            `<mark class="transition-all duration-1000 rounded px-0.5 font-bold ${
+                              isHighlightFading 
+                                ? 'bg-transparent text-inherit' 
+                                : 'bg-amber-200/80 text-amber-900 animate-pulse'
+                            }">$1</mark>`
+                          )
+                        : `\n${cleaned}`
+                      }
                     </ReactMarkdown>
                   </div>
                 );
@@ -272,18 +291,16 @@ export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
           </div>
         ) : (
           <>
-            {diffMode === "side-by-side" && (
-              <div className="flex gap-4 mb-4 text-xs font-sans font-medium text-muted-foreground uppercase tracking-wider">
-                <div className="flex-1 px-3 underline decoration-muted-foreground/30 underline-offset-4">{getVersionLabel(versionA)}</div>
-                <div className="flex-1 px-3 underline decoration-muted-foreground/30 underline-offset-4 font-bold text-foreground">{getVersionLabel(versionB)}</div>
-              </div>
-            )}
+            <div className="flex gap-4 mb-4 text-xs font-sans font-medium text-muted-foreground uppercase tracking-wider">
+              <div className="flex-1 px-3 underline decoration-muted-foreground/30 underline-offset-4">{getVersionLabel(versionA)}</div>
+              <div className="flex-1 px-3 underline decoration-muted-foreground/30 underline-offset-4 font-bold text-foreground">{versionB ? getVersionLabel(versionB) : ""}</div>
+            </div>
             <DiffView
               oldText={contentA}
               newText={contentB || ""}
-              mode={diffMode}
-              oldLabel={diffMode === "side-by-side" ? undefined : getVersionLabel(versionA)}
-              newLabel={diffMode === "side-by-side" ? undefined : getVersionLabel(versionB)}
+              mode="side-by-side"
+              oldLabel={undefined}
+              newLabel={undefined}
             />
           </>
         )}
@@ -293,7 +310,7 @@ export function SectionViewer({ node, sourceCode }: SectionViewerProps) {
         <div className="mt-4 flex flex-wrap items-center gap-4 text-sm font-sans text-muted-foreground bg-secondary/30 p-3 rounded-lg border border-border/50">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-sm bg-amendment-add border border-amendment-add/50" />
-            <span>Added in {getVersionLabel(versionB)}</span>
+            <span>Added in {versionB ? getVersionLabel(versionB) : ""}</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-sm bg-amendment-remove border border-amendment-remove/50" />

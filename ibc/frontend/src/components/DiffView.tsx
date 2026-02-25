@@ -162,17 +162,17 @@ export function DiffView({ oldText, newText, mode, oldLabel, newLabel }: DiffVie
   
   if (mode === "side-by-side") {
     return (
-      <div className="rounded-xl border border-border overflow-hidden bg-white shadow-sm font-body text-sm">
+      <div className="rounded-xl border border-border overflow-hidden bg-card shadow-sm font-body text-sm">
         {(oldLabel || newLabel) && (
-          <div className="grid grid-cols-2 divide-x divide-border border-b border-border bg-slate-50/50">
+          <div className="grid grid-cols-2 divide-x divide-border border-b border-border bg-secondary/30">
             <div className="px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">{oldLabel}</div>
-            <div className="px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] text-slate-700">{newLabel}</div>
+            <div className="px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] text-foreground/80">{newLabel}</div>
           </div>
         )}
-        <div className="divide-y divide-slate-100">
+        <div className="divide-y divide-border">
           {rows.map((row, i) => {
-            const renderCell = (line?: DiffLine, otherLine?: DiffLine, isOld?: boolean) => {
-              if (!line) return <div className="px-5 py-2 bg-slate-50/30 h-full border-l-2 border-transparent" />;
+            const renderCell = (line?: DiffLine, otherLine?: DiffLine, _isOld?: boolean) => {
+              if (!line) return <div className="px-5 py-2 bg-secondary/20 h-full border-l-2 border-transparent" />;
               
               const { cleaned, padding } = parseBulletLine(line.content);
               let finalContent = cleaned;
@@ -211,7 +211,7 @@ export function DiffView({ oldText, newText, mode, oldLabel, newLabel }: DiffVie
             };
 
             return (
-              <div key={i} className="grid grid-cols-2 divide-x divide-border group transition-colors hover:bg-slate-50/10">
+              <div key={i} className="grid grid-cols-2 divide-x divide-border group transition-colors hover:bg-secondary/10">
                 {renderCell(row.old, row.new, true)}
                 {renderCell(row.new, row.old, false)}
               </div>
@@ -236,7 +236,7 @@ export function DiffView({ oldText, newText, mode, oldLabel, newLabel }: DiffVie
   });
   
   return (
-    <div className="rounded-xl border border-border overflow-hidden bg-white shadow-sm font-body text-sm divide-y divide-slate-100">
+    <div className="rounded-xl border border-border overflow-hidden bg-card shadow-sm font-body text-sm divide-y divide-border">
       {inlineLines.map((line, i) => {
         const { cleaned, padding } = parseBulletLine(line.content);
         let finalContent = cleaned;
@@ -263,7 +263,7 @@ export function DiffView({ oldText, newText, mode, oldLabel, newLabel }: DiffVie
             </span>
             <div className={cn(
               "legal-text prose-sm max-w-none inline-block align-middle",
-              line.type === "added" && "text-slate-800",
+              line.type === "added" && "text-foreground/90",
               line.type === "removed" && "text-muted-foreground opacity-90"
             )} style={{ paddingLeft: `${padding}rem` }}>
               <ReactMarkdown 

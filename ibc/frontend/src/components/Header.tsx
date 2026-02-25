@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Scale, Home, BookOpen } from "lucide-react";
+import { Home, BookOpen, Clock, GitBranch } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -14,8 +14,8 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="w-full px-6 flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-primary-foreground">
-            <Scale className="h-5 w-5" />
+          <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white overflow-hidden border border-border">
+            <img src="/logo.png" alt="IBC Tracker Logo" className="h-full w-full object-cover" />
           </div>
           <div className="hidden sm:block">
             <h1 className="font-serif text-lg font-semibold text-foreground leading-tight">
@@ -50,7 +50,31 @@ export function Header() {
             )}
           >
             <BookOpen className="h-4 w-4" />
-            <span className="hidden sm:inline">Browse Code</span>
+            <span className="hidden sm:inline">Browse</span>
+          </Link>
+          <Link
+            to="/timeline"
+            className={cn(
+              "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-sans font-medium transition-colors",
+              isActive("/timeline")
+                ? "bg-secondary text-foreground"
+                : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+            )}
+          >
+            <Clock className="h-4 w-4" />
+            <span className="hidden sm:inline">Timeline</span>
+          </Link>
+          <Link
+            to="/evolution"
+            className={cn(
+              "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-sans font-medium transition-colors",
+              isActive("/evolution")
+                ? "bg-secondary text-foreground"
+                : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+            )}
+          >
+            <GitBranch className="h-4 w-4" />
+            <span className="hidden sm:inline">Evolution</span>
           </Link>
         </nav>
       </div>

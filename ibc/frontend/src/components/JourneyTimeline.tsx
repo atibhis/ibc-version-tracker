@@ -107,7 +107,7 @@ export const JourneyTimeline = () => {
         <path
           d="M 100 0 Q 300 200, 200 400 T 400 800 T 200 1200 T 400 1600 T 200 2000"
           fill="none"
-          stroke="hsl(var(--accent))"
+          stroke="hsl(var(--gold))"
           strokeWidth="2"
           strokeDasharray="8 4"
         />
@@ -207,7 +207,7 @@ export const JourneyTimeline = () => {
                       `} />
                     )}
                     {event.type === "milestone" && (
-                      <span className="font-serif font-bold text-primary text-lg">★</span>
+                       <span className="font-serif font-bold text-primary-foreground text-lg">★</span>
                     )}
                     {event.type === "discussion" && (
                       <div className="w-2 h-2 rounded-full bg-primary-foreground" />
