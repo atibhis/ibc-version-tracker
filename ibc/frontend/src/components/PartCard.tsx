@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ChevronRight, BookOpen, Layers } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { partMetadata } from "@/data/metadata";
 import type { Node } from "../services/api";
@@ -10,16 +10,7 @@ interface PartCardProps {
 }
 
 export function PartCard({ part, index }: PartCardProps) {
-  // Count total leaf nodes (sections)
-  const countLeafNodes = (node: Node): number => {
-    if (!node.children || node.children.length === 0) return 1;
-    return node.children.reduce((acc, child) => acc + countLeafNodes(child), 0);
-  };
-
-  const totalSections = countLeafNodes(part);
   const metadata = partMetadata[part.identifier] || { description: "Explore the consolidated legal framework of this part." };
-  
-  const chapterCount = part.children?.filter(n => n.node_type === 'chapter').length || 0;
 
   // Extract part number or ID carefully
   // Label example: "Part I: Preliminary" -> "I"
@@ -61,18 +52,7 @@ export function PartCard({ part, index }: PartCardProps) {
           </p>
         </div>
 
-        <div className="flex items-center gap-6 pt-6 border-t border-border">
-          {chapterCount > 0 && (
-            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.1em] text-muted-foreground">
-              <BookOpen className="h-4 w-4 text-accent" />
-              <span>{chapterCount} Chapters</span>
-            </div>
-          )}
-          <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.1em] text-muted-foreground">
-            <Layers className="h-4 w-4 text-gold" />
-            <span>{totalSections} Provisions</span>
-          </div>
-        </div>
+
       </div>
     </Link>
   );

@@ -6,6 +6,7 @@ import Index from "./pages/Index";
 import Browse from "./pages/Browse";
 import Timeline from "./pages/Timeline";
 import Evolution from "./pages/Evolution";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/browse/:lawCode" element={<Browse />} />
             <Route path="/timeline" element={<Timeline />} />
             <Route path="/evolution" element={<Evolution />} />
+            <Route path="/about" element={<About />} />
             {/* Catch-all redirect to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

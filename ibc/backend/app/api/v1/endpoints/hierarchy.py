@@ -1,3 +1,4 @@
+from datetime import date
 from typing import List, Optional, Dict
 from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException
@@ -13,22 +14,55 @@ router = APIRouter()
 async def get_full_hierarchy(
     source_code: str,
     parent_id: Optional[UUID] = None,
+    as_of: Optional[date] = None,
     session: Session = Depends(get_session)
 ):
     """
     Get the full hierarchy for a given document source (e.g., 'ibc').
-    Can be filtered by parent_id to get sub-trees.
+    Can be filtered by parent_id and date.
     """
     source = session.exec(select(DocumentSource).where(DocumentSource.code == source_code)).first()
     if not source:
         raise HTTPException(status_code=404, detail="Document source not found")
     
-    # Fetch all nodes for this source in one go to avoid N+1 issues
-    all_nodes = session.exec(
-        select(HierarchyNode)
-        .where(HierarchyNode.source_id == source.id)
-        .order_by(HierarchyNode.sort_order)
-    ).all()
+    # Base query for nodes
+    stmt = select(HierarchyNode).where(HierarchyNode.source_id == source.id)
+
+    if as_of:
+        # Only show nodes that were introduced (have content) as of this date.
+        from app.models.domain import NodeContent, DocumentVersion
+        
+        # Subquery for nodes that have content <= as_of
+        visible_node_ids_stmt = (
+            select(HierarchyNode.id)
+            .join(NodeContent)
+            .join(DocumentVersion)
+            .where(DocumentVersion.release_date <= as_of)
+        )
+        visible_node_ids = set(session.exec(visible_node_ids_stmt).all())
+        
+        # We also need to include all nodes for now if we want to build the tree,
+        # but we'll only fetch nodes that are ancestors of visible nodes OR visible nodes themselves.
+        all_nodes = session.exec(stmt.order_by(HierarchyNode.sort_order)).all()
+        
+        # Correct approach: fetch all and filter in memory to build the tree efficiently
+        nodes_lookup = {str(node.id): node for node in all_nodes}
+        nodes_to_keep = set()
+        
+        for n_id in visible_node_ids:
+            curr_id = str(n_id)
+            while curr_id and curr_id not in nodes_to_keep:
+                nodes_to_keep.add(curr_id)
+                node = nodes_lookup.get(curr_id)
+                curr_id = str(node.parent_id) if node and node.parent_id else None
+        
+        filtered_nodes = [node for node in all_nodes if str(node.id) in nodes_to_keep]
+        all_nodes = filtered_nodes
+    else:
+        # Fetch all nodes for this source in one go to avoid N+1 issues
+        all_nodes = session.exec(
+            stmt.order_by(HierarchyNode.sort_order)
+        ).all()
     
     # Build a lookup map
     nodes_by_parent: Dict[Optional[UUID], List[HierarchyNode]] = {}

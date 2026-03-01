@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
 
-export type ThemeStyle = "classic" | "modern" | "editorial" | "chambers" | "gazette" | "pastel" | "bold";
+export type ThemeStyle = "classic" | "editorial" | "chambers" | "gazette";
 
 interface ThemeContextType {
   theme: ThemeStyle;
@@ -17,12 +17,9 @@ export const useThemeStyle = () => useContext(ThemeContext);
 /**
  * Seven color palettes applied via CSS variables.
  * Classic   = warm ink & parchment (charcoal + burnished gold)
- * Modern    = cool slate + steel blue, crisp white
  * Editorial = deep burgundy/wine + ivory cream
  * Chambers  = walnut brown + antique copper (Classic variant)
  * Gazette   = olive/forest + aged amber (Editorial variant)
- * Pastel    = soft sky blue & mist
- * Bold      = black & electric gold (dark mode)
  */
 const PALETTES: Record<ThemeStyle, Record<string, string>> = {
   classic: {
@@ -52,33 +49,7 @@ const PALETTES: Record<ThemeStyle, Record<string, string>> = {
     "--cream": "40 30% 96%",
     "--cream-dark": "35 20% 92%",
   },
-  modern: {
-    "--background": "210 20% 98%",
-    "--foreground": "215 25% 15%",
-    "--card": "210 15% 100%",
-    "--card-foreground": "215 25% 15%",
-    "--popover": "210 15% 100%",
-    "--popover-foreground": "215 25% 15%",
-    "--primary": "215 30% 18%",
-    "--primary-foreground": "210 20% 96%",
-    "--secondary": "210 15% 93%",
-    "--secondary-foreground": "215 30% 18%",
-    "--muted": "210 10% 90%",
-    "--muted-foreground": "215 12% 50%",
-    "--accent": "215 55% 48%",
-    "--accent-foreground": "210 20% 98%",
-    "--destructive": "0 65% 50%",
-    "--destructive-foreground": "210 20% 98%",
-    "--border": "210 12% 88%",
-    "--input": "210 12% 88%",
-    "--ring": "215 55% 48%",
-    "--gold": "215 55% 48%",
-    "--gold-light": "215 25% 92%",
-    "--navy-dark": "215 30% 10%",
-    "--navy-light": "215 18% 32%",
-    "--cream": "210 20% 96%",
-    "--cream-dark": "210 15% 93%",
-  },
+
   editorial: {
     "--background": "30 25% 96%",
     "--foreground": "350 20% 14%",
@@ -160,60 +131,8 @@ const PALETTES: Record<ThemeStyle, Record<string, string>> = {
     "--cream": "45 20% 95%",
     "--cream-dark": "45 14% 90%",
   },
-  pastel: {
-    "--background": "210 30% 97%",
-    "--foreground": "220 20% 22%",
-    "--card": "210 25% 98%",
-    "--card-foreground": "220 20% 22%",
-    "--popover": "210 25% 98%",
-    "--popover-foreground": "220 20% 22%",
-    "--primary": "220 22% 32%",
-    "--primary-foreground": "210 30% 97%",
-    "--secondary": "200 18% 93%",
-    "--secondary-foreground": "220 22% 32%",
-    "--muted": "210 14% 90%",
-    "--muted-foreground": "220 10% 50%",
-    "--accent": "195 40% 50%",
-    "--accent-foreground": "0 0% 100%",
-    "--destructive": "0 65% 50%",
-    "--destructive-foreground": "0 0% 100%",
-    "--border": "210 16% 88%",
-    "--input": "210 16% 88%",
-    "--ring": "195 40% 50%",
-    "--gold": "195 40% 50%",
-    "--gold-light": "195 25% 92%",
-    "--navy-dark": "220 22% 16%",
-    "--navy-light": "220 14% 36%",
-    "--cream": "210 25% 96%",
-    "--cream-dark": "200 18% 93%",
-  },
-  bold: {
-    "--background": "0 0% 4%",
-    "--foreground": "0 0% 95%",
-    "--card": "0 0% 8%",
-    "--card-foreground": "0 0% 95%",
-    "--popover": "0 0% 8%",
-    "--popover-foreground": "0 0% 95%",
-    "--primary": "0 0% 95%",
-    "--primary-foreground": "0 0% 4%",
-    "--secondary": "0 0% 12%",
-    "--secondary-foreground": "0 0% 92%",
-    "--muted": "0 0% 15%",
-    "--muted-foreground": "0 0% 55%",
-    "--accent": "45 100% 55%",
-    "--accent-foreground": "0 0% 4%",
-    "--destructive": "0 65% 50%",
-    "--destructive-foreground": "0 0% 95%",
-    "--border": "0 0% 18%",
-    "--input": "0 0% 18%",
-    "--ring": "45 100% 55%",
-    "--gold": "45 100% 55%",
-    "--gold-light": "45 60% 15%",
-    "--navy-dark": "0 0% 2%",
-    "--navy-light": "0 0% 30%",
-    "--cream": "0 0% 92%",
-    "--cream-dark": "0 0% 12%",
-  },
+
+
 };
 
 export function ThemeProvider({ children }: { children: ReactNode }) {

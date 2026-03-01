@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { api } from "../services/api";
 import type { Node, Version } from "../services/api";
 import { DiffView } from "./DiffView";
-import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
@@ -23,7 +22,7 @@ interface SectionViewerProps {
 }
 
 export function SectionViewer({ node, sourceCode, highlightTerm, initialVersion }: SectionViewerProps) {
-  const [versionA, setVersionA] = useState<string>(initialVersion || "A0");
+  const [versionA, setVersionA] = useState<string>(initialVersion || "A6");
   const [versionB, setVersionB] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<"current" | "compare">("current");
   const [versions, setVersions] = useState<Version[]>([]);
@@ -72,7 +71,7 @@ export function SectionViewer({ node, sourceCode, highlightTerm, initialVersion 
     const fetchContentB = async () => {
       setLoadingB(true);
       try {
-        const detail = await api.getSectionDetail(sourceCode, node.identifier, versionB);
+        const detail = await api.getSectionDetail(sourceCode, node.identifier, versionB, node.node_type);
         setContentB(detail.current_content?.raw_content || `> [!NOTE]\n> This provision was not yet introduced or had no content in the ${getVersionLabel(versionB)} version.`);
       } catch (err) {
         setContentB(`> [!WARNING]\n> Provision not found in the ${getVersionLabel(versionB)} version. It may have been introduced in a later amendment.`);
@@ -117,64 +116,20 @@ export function SectionViewer({ node, sourceCode, highlightTerm, initialVersion 
 
   return (
     <div className="animate-fade-in">
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6">
-        <div>
-          <h2 className="font-serif text-3xl font-black text-foreground tracking-tight">
-            {node.label}
-          </h2>
-        </div>
+      {/* Section title */}
+      <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-6">
+        {node.label}
+      </h2>
 
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-2 p-1 bg-secondary rounded-lg">
-            <Button
-              variant={viewMode === "current" ? "default" : "ghost"}
-              size="sm"
-              onClick={() => {
-                setViewMode("current");
-                setVersionB(null);
-              }}
-              className="gap-2"
-            >
-              <Eye className="h-4 w-4" />
-              View
-            </Button>
-            <Button
-              variant={viewMode === "compare" ? "default" : "ghost"}
-              size="sm"
-              onClick={() => setViewMode("compare")}
-              className="gap-2"
-            >
-              <GitCompare className="h-4 w-4" />
-              Compare
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Version Selectors */}
-      <div className="flex flex-wrap items-center gap-3 mb-6 p-4 bg-secondary/50 rounded-lg border border-border">
-        {viewMode === "current" ? (
-          <div className="flex items-center gap-3">
-            <span className="text-sm font-sans font-medium text-muted-foreground">Version:</span>
-            <Select value={versionA} onValueChange={setVersionA}>
-              <SelectTrigger className="w-[200px] font-sans bg-background">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent className="bg-popover border border-border">
-                {versions.map((v) => (
-                  <SelectItem key={v.version_code} value={v.version_code}>
-                    {getVersionLabel(v.version_code)}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        ) : (
-          <>
-            <div className="flex items-center gap-3">
-              <span className="text-sm font-sans font-medium text-muted-foreground">From:</span>
+      {/* Toolbar: version left — View/Compare far right */}
+      <div className="flex items-center mb-8 border border-border rounded-lg overflow-hidden text-sm divide-x divide-border w-full">
+        {/* Version selector — left */}
+        <div className="flex items-center gap-1.5 px-4 py-2.5 bg-background text-muted-foreground flex-shrink-0">
+          {viewMode === "current" ? (
+            <>
+              <span>Version:</span>
               <Select value={versionA} onValueChange={setVersionA}>
-                <SelectTrigger className="w-[180px] font-sans bg-background">
+                <SelectTrigger className="h-auto py-0 px-0 border-0 shadow-none bg-transparent font-medium text-foreground focus:ring-0 w-auto gap-1">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="bg-popover border border-border">
@@ -185,34 +140,69 @@ export function SectionViewer({ node, sourceCode, highlightTerm, initialVersion 
                   ))}
                 </SelectContent>
               </Select>
-            </div>
-
-            <ArrowRight className="h-4 w-4 text-muted-foreground" />
-
-            <div className="flex items-center gap-3">
-              <span className="text-sm font-sans font-medium text-muted-foreground">To:</span>
-              <Select value={versionB || ""} onValueChange={setVersionB}>
-                <SelectTrigger className="w-[180px] font-sans bg-background">
-                  <SelectValue placeholder="Select version..." />
+            </>
+          ) : (
+            <>
+              <Select value={versionA} onValueChange={setVersionA}>
+                <SelectTrigger className="h-auto py-0 px-0 border-0 shadow-none bg-transparent font-medium text-foreground focus:ring-0 w-auto gap-1">
+                  <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="bg-popover border border-border">
                   {versions.map((v) => (
-                    <SelectItem 
-                      key={v.version_code} 
-                      value={v.version_code}
-                      disabled={v.version_code === versionA}
-                    >
+                    <SelectItem key={v.version_code} value={v.version_code}>
                       {getVersionLabel(v.version_code)}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
-            </div>
-          </>
-        )}
+              <ArrowRight className="h-3.5 w-3.5 mx-1" />
+              <Select value={versionB || ""} onValueChange={setVersionB}>
+                <SelectTrigger className="h-auto py-0 px-0 border-0 shadow-none bg-transparent font-medium text-foreground focus:ring-0 w-auto gap-1">
+                  <SelectValue placeholder="select version…" />
+                </SelectTrigger>
+                <SelectContent className="bg-popover border border-border">
+                  {versions.map((v) => (
+                    <SelectItem key={v.version_code} value={v.version_code} disabled={v.version_code === versionA}>
+                      {getVersionLabel(v.version_code)}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </>
+          )}
+        </div>
+
+        {/* Spacer pushes View/Compare to the far right */}
+        <div className="flex-1" />
+
+        {/* View button — right side */}
+        <button
+          onClick={() => { setViewMode("current"); setVersionB(null); }}
+          className={`flex items-center gap-1.5 px-4 py-2.5 transition-colors border-l border-border ${
+            viewMode === "current"
+              ? "bg-muted text-foreground font-medium"
+              : "bg-background text-muted-foreground hover:text-foreground hover:bg-muted/50"
+          }`}
+        >
+          <Eye className="h-3.5 w-3.5" />
+          View
+        </button>
+
+        {/* Compare button — right side */}
+        <button
+          onClick={() => setViewMode("compare")}
+          className={`flex items-center gap-1.5 px-4 py-2.5 transition-colors border-l border-border ${
+            viewMode === "compare"
+              ? "bg-muted text-foreground font-medium"
+              : "bg-background text-muted-foreground hover:text-foreground hover:bg-muted/50"
+          }`}
+        >
+          <GitCompare className="h-3.5 w-3.5" />
+          Compare
+        </button>
       </div>
 
-      <div className="min-h-[400px] py-8 px-6 md:px-10 bg-secondary/30 rounded-3xl border border-border/50 shadow-inner">
+      <div className="min-h-[300px]">
         {(loadingA || loadingB) ? (
           <div className="flex items-center justify-center h-full min-h-[200px]">
             <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
@@ -307,17 +297,14 @@ export function SectionViewer({ node, sourceCode, highlightTerm, initialVersion 
       </div>
 
       {viewMode === "compare" && versionB && !loadingA && !loadingB && (
-        <div className="mt-4 flex flex-wrap items-center gap-4 text-sm font-sans text-muted-foreground bg-secondary/30 p-3 rounded-lg border border-border/50">
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-sm bg-amendment-add border border-amendment-add/50" />
-            <span>Added in {versionB ? getVersionLabel(versionB) : ""}</span>
+        <div className="mt-6 flex flex-wrap items-center gap-4 text-xs text-muted-foreground border-t border-border/40 pt-4">
+          <div className="flex items-center gap-1.5">
+            <div className="w-2.5 h-2.5 rounded-sm bg-amendment-add" />
+            <span>Added in {getVersionLabel(versionB)}</span>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-sm bg-amendment-remove border border-amendment-remove/50" />
+          <div className="flex items-center gap-1.5">
+            <div className="w-2.5 h-2.5 rounded-sm bg-amendment-remove" />
             <span>Removed from {getVersionLabel(versionA)}</span>
-          </div>
-          <div className="ml-auto text-xs italic">
-            Computed by Diff Algorithm
           </div>
         </div>
       )}

@@ -52,16 +52,20 @@ async def get_node_details(
         .order_by(DocumentVersion.release_date)
     ).all()
     
-    # Get content for requested version or the earliest one if not specified
-    if not version_code:
-        # Default to base version (A0)
-        version_code = "A0"
-        
-    requested_version = session.exec(
-        select(DocumentVersion)
-        .where(DocumentVersion.source_id == source.id)
-        .where(DocumentVersion.version_code == version_code)
-    ).first()
+    # Get content for requested version or the latest one if not specified
+    if version_code:
+        requested_version = session.exec(
+            select(DocumentVersion)
+            .where(DocumentVersion.source_id == source.id)
+            .where(DocumentVersion.version_code == version_code)
+        ).first()
+    else:
+        # Default to latest version
+        requested_version = session.exec(
+            select(DocumentVersion)
+            .where(DocumentVersion.source_id == source.id)
+            .order_by(DocumentVersion.release_date.desc())
+        ).first()
     
     if not requested_version:
         # Fallback to base version if requested doesn't exist

@@ -36,8 +36,10 @@ export const api = {
     return res.json();
   },
   
-  getHierarchy: async (sourceCode: string): Promise<Node[]> => {
-    const res = await fetch(`${API_BASE_URL}/hierarchy/${sourceCode}`);
+  getHierarchy: async (sourceCode: string, asOf?: string): Promise<Node[]> => {
+    const url = new URL(`${API_BASE_URL}/hierarchy/${sourceCode}`);
+    if (asOf) url.searchParams.append("as_of", asOf);
+    const res = await fetch(url.toString());
     if (!res.ok) throw new Error("Failed to fetch hierarchy");
     return res.json();
   },
