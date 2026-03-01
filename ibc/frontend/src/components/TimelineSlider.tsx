@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { format } from "date-fns";
 import type { Version } from "@/services/api";
 import { cn } from "@/lib/utils";
 
@@ -29,7 +30,7 @@ export function TimelineSlider({ selectedDate, onDateChange, versions }: Timelin
     const pct = (e.clientX - rect.left) / rect.width;
     const ts = startDate.getTime() + pct * totalRange;
     const d = new Date(ts);
-    onDateChange(d.toISOString().split("T")[0]);
+    onDateChange(format(d, "yyyy-MM-dd"));
   };
 
   // Generate year markers

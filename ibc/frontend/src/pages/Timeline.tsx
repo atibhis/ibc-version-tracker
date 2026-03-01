@@ -107,7 +107,7 @@ export default function Timeline() {
 
   const handleCalendarSelect = (date: Date | undefined) => {
     if (date) {
-      setSelectedDate(date.toISOString().split("T")[0]);
+      setSelectedDate(format(date, "yyyy-MM-dd"));
     }
   };
 
