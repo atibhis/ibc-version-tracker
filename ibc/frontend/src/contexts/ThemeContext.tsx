@@ -105,11 +105,11 @@ const PALETTES: Record<ThemeStyle, Record<string, string>> = {
     "--cream-dark": "28 16% 90%",
   },
   gazette: {
-    "--background": "45 18% 95%",
+    "--background": "0 0% 100%",
     "--foreground": "80 25% 12%",
-    "--card": "48 14% 97%",
+    "--card": "0 0% 100%",
     "--card-foreground": "80 25% 12%",
-    "--popover": "48 14% 97%",
+    "--popover": "0 0% 100%",
     "--popover-foreground": "80 25% 12%",
     "--primary": "80 30% 16%",
     "--primary-foreground": "45 22% 95%",
@@ -128,7 +128,7 @@ const PALETTES: Record<ThemeStyle, Record<string, string>> = {
     "--gold-light": "40 28% 91%",
     "--navy-dark": "80 25% 10%",
     "--navy-light": "80 16% 28%",
-    "--cream": "45 20% 95%",
+    "--cream": "0 0% 100%",
     "--cream-dark": "45 14% 90%",
   },
 

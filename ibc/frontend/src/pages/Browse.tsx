@@ -80,7 +80,6 @@ export default function Browse() {
     const loadData = async () => {
       setLoading(true);
       try {
-        // Fetch versions first to get the latest date
         const versionsData = await api.getVersions(sourceCode);
         const latestVersion = versionsData.sort((a, b) => b.release_date.localeCompare(a.release_date))[0];
         const initialDate = latestVersion?.release_date;
@@ -389,8 +388,8 @@ export default function Browse() {
         </div>
 
         {/* Main content */}
-        <main className="flex-1 overflow-auto bg-background">
-          <div className="w-full py-10 px-6 md:px-12">
+        <main className="flex-1 overflow-auto bg-background flex flex-col">
+          <div className="flex-1 w-full py-10 px-6 md:px-12">
             {selectedNode ? (
               <SectionViewer
                 node={selectedNode}

@@ -128,9 +128,9 @@ export default function Timeline() {
       <div className="flex-1 flex overflow-hidden">
         <main
           ref={scrollContainerRef}
-          className="flex-1 overflow-auto scroll-smooth"
+          className="flex-1 overflow-auto scroll-smooth flex flex-col"
         >
-          <div className="w-full max-w-5xl mx-auto py-14 px-6 md:px-10">
+          <div className="flex-1 w-full max-w-5xl mx-auto py-14 px-6 md:px-10">
 
             {/* Page heading */}
             <div className="mb-10">
