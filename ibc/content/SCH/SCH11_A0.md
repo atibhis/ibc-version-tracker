@@ -1,10 +1,8 @@
-"AMENDMENTS TO THE COMPANIES ACT, 2013
-(18 OF 2013)
+AMENDMENTS TO THE COMPANIES ACT, 2013 (18 OF 2013)
 1. In section 2,—
 (a) for clause (23), the following clause shall be substituted, namely:—
-""(23) ""Company Liquidator"" means a person appointed by the Tribunal
-as the Company Liquidator in accordance with the provisions of section 275 for
-the winding up of a company under this Act;"";
+** (23) **Company Liquidator** means a person appointed by the Tribunal
+as the Company Liquidator in accordance with the provisions of section 275 for the winding up of a company under this Act;"";
 (b) after clause (94) , the following clause shall be inserted, namely:—
 ""(94A) ""winding up"" means winding up under this Act or liquidation
 under the Insolvency and Bankruptcy Code, 2016, as applicable."".

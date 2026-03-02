@@ -66,17 +66,20 @@ function TimelineSectionItem({ section, versionCode, onNavigate, isExpanded }: T
   return (
     <div className="group">
       <div className="flex items-start justify-between gap-3 py-2">
-        <span className={`text-sm leading-snug flex-1 transition-colors ${
-          localExpanded ? "text-foreground font-medium" : "text-foreground/80 group-hover:text-foreground"
-        }`}>
+        <button 
+          onClick={toggleExpand}
+          className={`text-left text-sm leading-snug flex-1 transition-colors hover:text-foreground ${
+            localExpanded ? "text-foreground font-medium" : "text-foreground/80 group-hover:text-foreground"
+          }`}
+        >
           {section.label}
-        </span>
+        </button>
 
         <div className="flex items-center gap-1.5 flex-shrink-0 mt-0.5">
           {/* "Evolution" button — visible on hover, navigates to browse/compare */}
           <button
             onClick={(e) => { e.stopPropagation(); onNavigate(section.id); }}
-            className="opacity-0 group-hover:opacity-100 transition-opacity inline-flex items-center gap-1 text-[10px] text-muted-foreground hover:text-accent font-medium px-1.5 py-0.5 rounded border border-transparent hover:border-border/60 hover:bg-muted/50"
+            className="inline-flex items-center gap-1 text-[10px] text-muted-foreground/60 group-hover:text-muted-foreground hover:text-accent font-medium px-1.5 py-0.5 rounded border border-transparent group-hover:border-border/60 hover:bg-muted/50 transition-all"
             title="See how this section evolved"
           >
             Evolution

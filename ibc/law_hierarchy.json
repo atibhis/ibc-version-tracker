@@ -84,7 +84,6 @@
           { "id": "57", "name": "Manner of initiating fast track corporate insolvency resolution process" },
           { "id": "58", "name": "Applicability of Chapter II to this Chapter" }
         ] },
-        { "key": "C4A", "name": "Chapter IV A: Creditor-Initiated Insolvency Resolution Process", "sections": ["58A", "58B", "58C", "58D", "58E", "58F", "58G", "58H", "58I", "58J", "58K"] },
         { "key": "C5", "name": "Chapter V: Voluntary Liquidation of Corporate Persons", "sections": [{ "id": "59", "name": "Voluntary liquidation of corporate persons" }] },
         { "key": "C5A", "name": "Chapter VA: Group Insolvency", "sections": ["59A"] },
         { "key": "C6", "name": "Chapter VI: Adjudicating Authority for Corporate Persons", "sections": [

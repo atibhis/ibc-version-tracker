@@ -1,8 +1,3 @@
-"AMENDMENT TO THE PAYMENT AND SETTLEMENT SYSTEMS ACT, 2007
-(51 OF 2007)
-1. In section 23, in sub-sections (4), (5) and (6), after the words and figures ""the
-Banking Regulation Act, 1949 (10 of 1949)"" ""the Companies Act, 2013 (18 of 2013)"", the
-words and figures ""or the Insolvency and Bankruptcy Code, 2016"" shall be inserted.
-2. In section 23A, in sub-section (3), after the words and figures ""the Companies Act,
-2013"", the words and figures ""or the Insolvency and Bankruptcy Code, 2016"" shall be
-inserted."
+AMENDMENT TO THE PAYMENT AND SETTLEMENT SYSTEMS ACT, 2007 (51 OF 2007)
+1. In section 23, in sub-sections (4), (5) and (6), after the words and figures **the Banking Regulation Act, 1949 (10 of 1949)** **the Companies Act, 2013 (18 of 2013)**, the words and figures **or the Insolvency and Bankruptcy Code, 2016** shall be inserted.
+2. In section 23A, in sub-section (3), after the words and figures **the Companies Act, 2013**, the words and figures **or the Insolvency and Bankruptcy Code, 2016** shall be inserted.
