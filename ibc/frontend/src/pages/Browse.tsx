@@ -24,6 +24,8 @@ export default function Browse() {
   const [searchParams] = useSearchParams();
   const querySectionId = searchParams.get("section");
   const queryVersion = searchParams.get("version");
+  const fromTimeline = searchParams.get("from") === "timeline";
+  const [dismissedBanner, setDismissedBanner] = useState(false);
 
   const [hierarchy, setHierarchy] = useState<Node[]>([]);
   const [loading, setLoading] = useState(true);
@@ -207,6 +209,20 @@ export default function Browse() {
   return (
     <div className="min-h-screen bg-background flex flex-col text-foreground">
       <Header />
+
+      {/* Referrer banner — shown when opened from Timeline */}
+      {fromTimeline && !dismissedBanner && (
+        <div className="flex items-center justify-between gap-3 px-5 py-2.5 bg-accent/10 border-b border-accent/20 text-xs text-accent/90 font-mono tracking-wide">
+          <span>↩ Opened from Timeline — close this tab to return to your place.</span>
+          <button
+            onClick={() => setDismissedBanner(true)}
+            className="opacity-50 hover:opacity-100 transition-opacity"
+            title="Dismiss"
+          >
+            <X className="h-3.5 w-3.5" />
+          </button>
+        </div>
+      )}
 
       <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
         {/* Sidebar */}

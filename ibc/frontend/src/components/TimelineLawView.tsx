@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import { api } from "@/services/api";
 import type { Node, SectionDetail } from "@/services/api";
 import { ChevronDown, ChevronUp, ExternalLink, Maximize2, Minimize2 } from "lucide-react";
@@ -82,7 +81,7 @@ function TimelineSectionItem({ section, versionCode, onNavigate, isExpanded }: T
             className="inline-flex items-center gap-1 text-[10px] text-muted-foreground/60 group-hover:text-muted-foreground hover:text-accent font-medium px-1.5 py-0.5 rounded border border-transparent group-hover:border-border/60 hover:bg-muted/50 transition-all"
             title="See how this section evolved"
           >
-            Evolution
+            Browse →
             <ExternalLink className="h-2.5 w-2.5" />
           </button>
 
@@ -123,7 +122,6 @@ function TimelineSectionItem({ section, versionCode, onNavigate, isExpanded }: T
 
 
 export function TimelineLawView({ versionCode, hierarchy }: TimelineLawViewProps) {
-  const navigate = useNavigate();
   const [expandedParts, setExpandedParts] = useState<Set<string>>(
     () => new Set(hierarchy.slice(0, 2).map(p => p.id))
   );
@@ -167,7 +165,7 @@ export function TimelineLawView({ versionCode, hierarchy }: TimelineLawViewProps
   };
 
   const handleNavigate = (id: string) => {
-    navigate(`/browse/ibc?section=${id}&version=${versionCode}`);
+    window.open(`/browse/ibc?section=${id}&version=${versionCode}&from=timeline`, '_blank', 'noopener,noreferrer');
   };
 
   return (
