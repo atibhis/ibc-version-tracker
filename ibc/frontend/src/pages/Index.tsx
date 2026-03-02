@@ -51,7 +51,7 @@ const Index = () => {
 
       {/* ============ CLASSIC ============ */}
       {theme === "classic" && (
-        <section className="flex-1 flex flex-col items-center justify-start pt-10 pb-2 px-8 relative text-center">
+        <section className="flex flex-col items-center justify-start pt-10 pb-2 px-8 relative text-center">
           <div className="absolute inset-0 bg-gradient-to-b from-secondary/10 via-background to-background" />
           <div className="relative w-full max-w-6xl">
             <div className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-[10px] font-mono tracking-[0.2em] uppercase mb-3">
@@ -64,45 +64,41 @@ const Index = () => {
             <div className="w-full max-w-4xl mx-auto h-px bg-foreground/10 mb-5" />
             
             <div className="space-y-2">
-              <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-accent font-black">Preamble</p>
-              <p className="font-body text-xs sm:text-base leading-relaxed text-muted-foreground italic max-w-4xl mx-auto px-10">
+              <p className="font-mono text-[12px] uppercase tracking-[0.5em] text-accent font-black">Preamble</p>
+              <p className="font-body text-xs sm:text-base leading-relaxed text-muted-foreground italic max-w-6xl mx-auto px-20">
                 "{IBC_PREAMBLE}"
               </p>
             </div>
 
             <div className="w-full max-w-4xl mx-auto h-px bg-foreground/10 mt-5" />
 
-            {/* Purpose Text */}
-            <p className="mt-6 text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-mono max-w-2xl mx-auto">
-              Temporal registry of India's Insolvency laws. Tracing the core legislation since 2016.
-            </p>
+            
           </div>
         </section>
       )}
 
       {/* ============ EDITORIAL ============ */}
       {theme === "editorial" && (
-        <section className="flex-1 flex flex-col items-center justify-start pt-6 px-12 text-center">
+        <section className="flex flex-col items-center justify-start pt-6 px-12 text-center">
           <div className="w-full max-w-6xl border-y-2 border-foreground py-6 md:py-6">
-            <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground uppercase mb-4">
-              The Parliament of India · 2016
+            <p className="font-mono text-[12px] tracking-[0.4em] text-muted-foreground uppercase mb-4">
+              Act 31 of 2016
             </p>
-            <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl font-black text-foreground leading-[0.8] mb-6 tracking-tighter uppercase">
-              The <span className="italic">Insolvency and</span><br/>
-             Bankruptcy<br/>
-              Code
+            <h1 className="font-serif text-3xl sm:text-6xl md:text-6xl font-black text-foreground leading-[0.8] mb-6 tracking-tighter uppercase">
+              The Insolvency and<br/>
+             Bankruptcy Code
             </h1>
             
-            <div className="w-full h-px bg-foreground/20 mb-6" />
+            {/* <div className="w-full h-px bg-foreground/20 mb-6" /> */}
             
             <div className="space-y-3">
-              <p className="font-mono text-[10px] uppercase tracking-[0.5em] text-accent font-black">Preamble</p>
+              <p className="font-mono text-[12px] uppercase tracking-[0.5em] text-accent font-black">Preamble</p>
               <p className="font-body text-sm md:text-xl leading-relaxed text-foreground/90 font-medium max-w-5xl mx-auto">
                 {IBC_PREAMBLE}
               </p>
             </div>
 
-            <div className="w-full h-px bg-foreground/20 mt-6" />
+            {/* <div className="w-full h-px bg-foreground/20 mt-6" /> */}
 
           </div>
         </section>
@@ -110,7 +106,7 @@ const Index = () => {
 
       {/* ============ CHAMBERS ============ */}
       {theme === "chambers" && (
-        <section className="flex-1 flex flex-col items-start justify-start pt-12 px-16 bg-secondary/5 text-left">
+        <section className="flex flex-col items-start justify-start pt-12 px-16 bg-secondary/5 text-left">
           <div className="w-full max-w-6xl">
             <div className="flex items-center justify-start gap-4 mb-4">
               <Landmark className="h-5 w-5 text-accent" />
@@ -177,10 +173,10 @@ const Index = () => {
       <section className={cn(
         "px-8 pb-4 w-full",
         theme === "chambers" ? "px-16 text-left" : "container mx-auto",
-        theme === "gazette" && "pt-44",
-        theme === "editorial" && "pt-4",
+        theme === "gazette" && "pt-40",
+        theme === "editorial" && "pt-36",
         theme === "chambers" && "pt-2",
-        theme === "classic" && "pt-2"
+        theme === "classic" && "pt-36"
       )}>
         <div className={cn(
           "grid gap-4 w-full",
