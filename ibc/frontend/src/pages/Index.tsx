@@ -46,236 +46,86 @@ const Index = () => {
 
       {/* ============ CLASSIC ============ */}
       {theme === "classic" && (
-        <>
-          <section className="relative py-12 md:py-20 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-background" />
-            <div className="container px-8 relative text-center w-full">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-mono tracking-wide mb-6">
-                <Scale className="h-3.5 w-3.5" />
-                Act No. 31 of 2016
-              </div>
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight mb-4">
-                The Insolvency and Bankruptcy Code
-              </h1>
-              <p className="text-muted-foreground font-body text-sm sm:text-base leading-relaxed max-w-xl mx-auto mb-8">
-                Navigate India's landmark insolvency legislation — browse sections,
-                trace amendments through time, and see the law as it stood on any date.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link to="/browse/ibc" className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-accent text-accent-foreground font-sans text-sm font-semibold hover:opacity-90 transition-opacity transition-transform hover:scale-105 active:scale-95 duration-200 shadow-lg shadow-accent/20">
-                  Explorer <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link to="/timeline" className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-border text-foreground font-sans text-sm font-medium hover:bg-secondary transition-all">
-                  <Clock className="h-4 w-4" /> Law as on Date
-                </Link>
-              </div>
+        <section className="flex-1 flex flex-col items-center justify-center py-20 px-8 relative overflow-hidden text-center">
+          <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-background to-background" />
+          <div className="relative max-w-2xl transform -translate-y-8">
+            <div className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-[10px] font-mono tracking-[0.2em] uppercase mb-6">
+              Act No. 31 of 2016
             </div>
-          </section>
-
-          <section className="border-y border-border bg-card">
-            <div className="container px-8 py-8 md:py-10 w-full text-center">
-              <p className="font-sans text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">Preamble</p>
-              <blockquote className="font-serif text-sm sm:text-base md:text-lg leading-relaxed text-foreground/80 italic">
-                "{IBC_PREAMBLE}"
-              </blockquote>
-            </div>
-          </section>
-
-
-
-          <section className="container px-8 py-8 pb-16 w-full">
-            <div className="grid gap-4 md:grid-cols-4 w-full">
-              {NAV_ITEMS.slice(0, 4).map((card) => (
-                <Link key={card.to} to={card.to} className="group flex flex-col p-5 rounded-xl border border-border bg-card hover:border-accent/40 hover:shadow-md transition-all">
-                  <card.icon className="h-5 w-5 text-accent mb-3" />
-                  <h3 className="font-serif text-sm font-bold text-foreground group-hover:text-accent transition-colors mb-1.5">{card.title}</h3>
-                  <p className="text-xs text-muted-foreground font-body leading-relaxed flex-1">{card.desc}</p>
-                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-accent font-sans mt-3">
-                    Open <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </section>
-        </>
+            <h1 className="font-serif text-4xl sm:text-5xl font-bold text-foreground leading-[1.1] mb-8 tracking-tight">
+              The Insolvency and <br/> Bankruptcy Code
+            </h1>
+            <p className="font-body text-base sm:text-lg leading-relaxed text-muted-foreground italic">
+              "{IBC_PREAMBLE}"
+            </p>
+          </div>
+        </section>
       )}
-
-
 
       {/* ============ EDITORIAL ============ */}
       {theme === "editorial" && (
-        <>
-          <section className="container px-8 pt-4 md:pt-6 pb-2">
-            <div className="w-full">
-              <div className="border-b-2 border-foreground pb-2 mb-4">
-                <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
-                  The Parliament of India · Act No. 31 of 2016
-                </p>
-              </div>
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-[0.95] mb-4 tracking-tighter">
-                The Insolvency
-                and <span className="italic font-serif font-bold">Bankruptcy</span><br />
-                Code
-              </h1>
-              <p className="text-muted-foreground font-body text-sm sm:text-base leading-relaxed max-w-md mb-6 font-light">
-                A digital reference for tracing amendments and provisions through time.
-              </p>
-              <div className="flex flex-wrap gap-4 mb-4">
-                <Link to="/browse/ibc" className="inline-flex items-center gap-3 px-8 py-3 bg-accent text-accent-foreground rounded-none font-sans text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">
-                  Browse <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link to="/timeline" className="inline-flex items-center gap-3 px-8 py-3 border border-foreground/20 rounded-none font-sans text-xs uppercase tracking-widest hover:bg-foreground/5 transition-colors">
-                  <Clock className="h-4 w-4" /> Version History
-                </Link>
-              </div>
-            </div>
-          </section>
-
-          <section className="border-y border-foreground/10 bg-secondary/5">
-            <div className="container px-8 py-8 md:py-10 w-full">
-              <div className="columns-1 md:columns-2 gap-12">
-                <p className="font-sans text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4 break-after-avoid">Preamble</p>
-                <p className="font-body text-base leading-relaxed text-foreground/80 first-letter:text-5xl first-letter:font-serif first-letter:font-black first-letter:text-foreground first-letter:float-left first-letter:mr-3 first-letter:leading-none">
-                  {IBC_PREAMBLE}
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section className="container px-8 py-16 md:py-24 w-full">
-            <div className="space-y-0 divide-y divide-border border-t border-border">
-              {NAV_ITEMS.map((item) => (
-                <Link key={item.to} to={item.to} className="group flex items-center justify-between py-8 hover:bg-secondary/20 hover:px-4 transition-all duration-300">
-                  <div>
-                    <h3 className="font-serif text-xl font-bold text-foreground group-hover:text-accent transition-colors">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground font-body mt-1">{item.desc}</p>
-                  </div>
-                  <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-accent group-hover:translate-x-2 transition-all" />
-                </Link>
-              ))}
-            </div>
-          </section>
-        </>
+        <section className="flex-1 flex flex-col items-center justify-center py-20 px-12 text-center">
+          <div className="max-w-3xl border-y-2 border-foreground py-16">
+            <p className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground uppercase mb-10">
+              The Parliament of India · 2016
+            </p>
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-black text-foreground leading-[0.85] mb-12 tracking-tighter uppercase">
+              The <span className="italic">Insolvency</span><br/>
+              & <span className="text-accent underline underline-offset-[10px] decoration-4">Bankruptcy</span><br/>
+              Code
+            </h1>
+            <p className="font-body text-base md:text-xl leading-relaxed text-foreground/80 font-medium max-w-2xl mx-auto">
+              {IBC_PREAMBLE}
+            </p>
+          </div>
+        </section>
       )}
 
       {/* ============ CHAMBERS ============ */}
       {theme === "chambers" && (
-        <>
-          <section className="relative py-12 md:py-20 overflow-hidden bg-secondary/10">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-            <div className="container px-8 relative w-full">
-              <div className="flex flex-col md:flex-row md:items-end gap-10 md:gap-16">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-6">
-                    <Landmark className="h-5 w-5 text-accent" />
-                    <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase font-bold">Registry No. 31/2016</span>
-                  </div>
-                  <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-black text-foreground leading-tight mb-6 tracking-tight">
-                    The Insolvency <br/>and Bankruptcy Code
-                  </h1>
-                  <p className="text-muted-foreground font-body text-sm leading-relaxed max-w-md mb-8 italic">
-                    "An official reference for legal scholars and practitioners navigating the evolving landscape of Indian bankruptcy law."
-                  </p>
-                  <div className="flex flex-wrap gap-4">
-                    <Link to="/browse/ibc" className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-accent text-accent-foreground font-sans text-sm font-bold shadow-xl shadow-accent/20 hover:scale-105 transition-all">
-                      Legal Explorer <ArrowRight className="h-4 w-4" />
-                    </Link>
-                    <Link to="/timeline" className="inline-flex items-center gap-3 px-6 py-3 rounded-xl border-2 border-border text-foreground font-sans text-sm font-bold hover:bg-secondary transition-all">
-                      <Clock className="h-4 w-4" /> Version History
-                    </Link>
-                  </div>
-                </div>
-
-              </div>
+        <section className="flex-1 flex flex-col items-center justify-center py-20 px-8 bg-secondary/5 text-center">
+          <div className="max-w-2xl">
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <div className="h-px w-8 bg-accent/40" />
+              <Landmark className="h-5 w-5 text-accent" />
+              <div className="h-px w-8 bg-accent/40" />
             </div>
-          </section>
-
-          <section className="border-y border-border bg-card/60">
-            <div className="container px-8 py-8 md:py-12 w-full">
-              <p className="font-sans text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">Official Preamble</p>
-              <blockquote className="font-serif text-lg sm:text-xl leading-relaxed text-foreground/75 italic border-l-4 border-accent/40 pl-6 py-2">
-                "{IBC_PREAMBLE}"
-              </blockquote>
-            </div>
-          </section>
-
-          <section className="container px-8 py-16 md:py-20">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
-              {NAV_ITEMS.map((card) => (
-                <Link key={card.to} to={card.to} className="group flex items-start gap-4 p-6 rounded-2xl border border-border bg-card hover:border-accent/40 hover:bg-secondary/40 transition-all shadow-sm">
-                  <div className="p-3 rounded-xl bg-accent/10 text-accent">
-                    <card.icon className="h-5 w-5" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-serif text-sm font-black text-foreground group-hover:text-accent transition-colors mb-1 truncate">{card.title}</h3>
-                    <p className="text-xs text-muted-foreground font-body leading-relaxed">{card.desc}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
-        </>
+            <h1 className="font-serif text-5xl sm:text-6xl font-black text-foreground leading-tight mb-8 tracking-tight">
+              The Insolvency <br/> & Bankruptcy Code
+            </h1>
+            <p className="font-serif text-base sm:text-lg leading-relaxed text-foreground/75 italic border-x border-accent/20 px-10 py-2">
+              "{IBC_PREAMBLE}"
+            </p>
+          </div>
+        </section>
       )}
 
       {/* ============ GAZETTE ============ */}
       {theme === "gazette" && (
-        <>
-          <section className="container px-8 pt-4 md:pt-6 pb-2 text-center">
-            <div className="w-full">
-              <div className="flex items-center gap-4 mb-6">
-                <Scroll className="h-6 w-6 text-accent" />
-                <div className="flex-1 h-px bg-foreground" />
-                <span className="font-mono text-[10px] tracking-[0.4em] text-foreground uppercase font-black">Official Record</span>
-                <div className="flex-1 h-px bg-foreground" />
-              </div>
-              <div className="mb-6">
-                <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-black text-foreground leading-[1.0] mb-2 uppercase">
-                  The Insolvency and Bankruptcy Code
-                </h1>
-                <p className="font-serif text-base sm:text-lg text-accent font-bold tracking-tight italic">OF INDIA · ACT 31/2016</p>
-              </div>
-              <div className="flex flex-wrap justify-center gap-4 mb-4">
-                <Link to="/browse/ibc" className="inline-flex items-center gap-3 px-8 py-3 bg-foreground text-background rounded-none font-sans text-xs font-black uppercase tracking-widest hover:bg-accent hover:text-accent-foreground transition-all">
-                  Read Record <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link to="/timeline" className="inline-flex items-center gap-3 px-8 py-3 border-2 border-foreground rounded-none font-sans text-xs font-black uppercase tracking-widest hover:bg-foreground hover:text-background transition-all">
-                  Time Journal
-                </Link>
-              </div>
+        <section className="flex-1 flex flex-col items-center justify-center py-20 px-8 text-center bg-[radial-gradient(circle_at_center,var(--secondary)_0%,transparent_100%)]">
+          <div className="max-w-4xl">
+            <div className="flex items-center gap-4 mb-12">
+              <div className="flex-1 h-px bg-foreground" />
+              <span className="font-mono text-[10px] tracking-[0.5em] text-foreground uppercase font-black">Official Record</span>
+              <div className="flex-1 h-px bg-foreground" />
             </div>
-          </section>
-
-          <section className="border-y border-foreground bg-secondary/10">
-            <div className="container px-8 py-8 md:py-10 w-full">
-              <p className="font-sans text-sm font-medium text-muted-foreground uppercase tracking-widest mb-3 text-center">Preamble</p>
-              <div className="font-serif text-base leading-relaxed text-foreground text-center font-medium max-w-4xl mx-auto relative px-12">
-                <span className="text-4xl absolute left-0 top-0 text-accent font-black opacity-20">“</span>
+            <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-black text-foreground leading-[1.0] mb-8 uppercase tracking-[-0.04em]">
+              The Insolvency and <br/> Bankruptcy Code
+            </h1>
+            <div className="relative px-12 group">
+              <span className="text-5xl absolute -left-2 -top-4 text-accent font-black opacity-30 select-none">“</span>
+              <p className="font-serif text-base sm:text-lg leading-relaxed text-foreground font-medium italic">
                 {IBC_PREAMBLE}
-                <span className="text-4xl absolute right-0 bottom-0 text-accent font-black opacity-20 italic rotate-180 inline-block">“</span>
-              </div>
+              </p>
+              <span className="text-5xl absolute -right-2 -bottom-6 text-accent font-black opacity-30 select-none rotate-180 inline-block">“</span>
             </div>
-          </section>
-
-          <section className="container px-8 py-12 md:py-20 w-full">
-            <div className="grid gap-0 md:grid-cols-4 border border-foreground/10 w-full">
-              {NAV_ITEMS.slice(0, 4).map((card) => (
-                <Link 
-                  key={card.to} 
-                  to={card.to} 
-                  className="group flex flex-col p-8 border-r border-b md:border-b-0 last:border-r-0 border-foreground/10 hover:bg-foreground hover:text-background transition-all duration-300"
-                >
-                  <card.icon className="h-6 w-6 mb-6 group-hover:scale-110 transition-transform text-accent group-hover:text-background" />
-                  <h3 className="font-serif text-xs font-black uppercase tracking-[0.2em] mb-2">{card.title}</h3>
-                  <p className="text-[10px] font-body leading-relaxed opacity-70 group-hover:opacity-100 italic lowercase">{card.desc}</p>
-                  <div className="mt-auto pt-8">
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform opacity-40 group-hover:opacity-100" />
-                  </div>
-                </Link>
-              ))}
+            <div className="mt-16 pt-4 border-t border-foreground inline-block px-12">
+              <p className="font-serif text-[10px] tracking-widest text-accent font-bold uppercase">OF INDIA · ACT 31/2016</p>
             </div>
-          </section>
-        </>
+          </div>
+        </section>
       )}
+
 
 
 
