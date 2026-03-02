@@ -248,25 +248,28 @@ const Index = () => {
           <section className="border-y border-foreground bg-secondary/10">
             <div className="container px-8 py-8 md:py-10 w-full">
               <p className="font-sans text-sm font-medium text-muted-foreground uppercase tracking-widest mb-3 text-center">Preamble</p>
-              <p className="font-serif text-base leading-relaxed text-foreground text-center font-medium">
-                <span className="text-4xl float-left mr-3 mt-1 text-accent font-black">“</span>
+              <div className="font-serif text-base leading-relaxed text-foreground text-center font-medium max-w-4xl mx-auto relative px-12">
+                <span className="text-4xl absolute left-0 top-0 text-accent font-black opacity-20">“</span>
                 {IBC_PREAMBLE}
-              </p>
+                <span className="text-4xl absolute right-0 bottom-0 text-accent font-black opacity-20 italic rotate-180 inline-block">“</span>
+              </div>
             </div>
           </section>
 
-          <section className="container px-8 py-16 w-full">
-            <div className="space-y-0 divide-y divide-foreground/10 border-t border-foreground/10">
-              {NAV_ITEMS.map((item) => (
-                <Link key={item.to} to={item.to} className="group flex items-center justify-between py-8 hover:bg-secondary/20 hover:px-4 transition-all duration-300">
-                  <div className="flex items-center gap-4 text-accent">
-                    <item.icon className="h-5 w-5" />
-                    <div>
-                      <h3 className="font-serif text-lg font-black uppercase tracking-tight group-hover:underline">{item.title}</h3>
-                      <p className="text-xs text-muted-foreground font-body mt-1 lowercase italic">{item.desc}</p>
-                    </div>
+          <section className="container px-8 py-12 md:py-20 w-full">
+            <div className="grid gap-0 md:grid-cols-4 border border-foreground/10 w-full">
+              {NAV_ITEMS.slice(0, 4).map((card) => (
+                <Link 
+                  key={card.to} 
+                  to={card.to} 
+                  className="group flex flex-col p-8 border-r border-b md:border-b-0 last:border-r-0 border-foreground/10 hover:bg-foreground hover:text-background transition-all duration-300"
+                >
+                  <card.icon className="h-6 w-6 mb-6 group-hover:scale-110 transition-transform text-accent group-hover:text-background" />
+                  <h3 className="font-serif text-xs font-black uppercase tracking-[0.2em] mb-2">{card.title}</h3>
+                  <p className="text-[10px] font-body leading-relaxed opacity-70 group-hover:opacity-100 italic lowercase">{card.desc}</p>
+                  <div className="mt-auto pt-8">
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform opacity-40 group-hover:opacity-100" />
                   </div>
-                  <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-accent group-hover:translate-x-2 transition-all" />
                 </Link>
               ))}
             </div>
