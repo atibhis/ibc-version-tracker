@@ -4,7 +4,7 @@ import { Header } from "@/components/Header";
 import { SectionViewer } from "@/components/SectionViewer";
 import { api } from "../services/api";
 import type { Node } from "../services/api";
-import { FileText, BookOpen, Folder, Loader2, Scale, Search, X, GripVertical } from "lucide-react";
+import { FileText, BookOpen, Folder, Loader2, Scale, Search, X, GripVertical, ArrowLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 import {
@@ -25,7 +25,6 @@ export default function Browse() {
   const querySectionId = searchParams.get("section");
   const queryVersion = searchParams.get("version");
   const fromTimeline = searchParams.get("from") === "timeline";
-  const [dismissedBanner, setDismissedBanner] = useState(false);
 
   const [hierarchy, setHierarchy] = useState<Node[]>([]);
   const [loading, setLoading] = useState(true);
@@ -210,18 +209,15 @@ export default function Browse() {
     <div className="min-h-screen bg-background flex flex-col text-foreground">
       <Header />
 
-      {/* Referrer banner — shown when opened from Timeline */}
-      {fromTimeline && !dismissedBanner && (
-        <div className="flex items-center justify-between gap-3 px-5 py-2.5 bg-accent/10 border-b border-accent/20 text-xs text-accent/90 font-mono tracking-wide">
-          <span>↩ Opened from Timeline — close this tab to return to your place.</span>
-          <button
-            onClick={() => setDismissedBanner(true)}
-            className="opacity-50 hover:opacity-100 transition-opacity"
-            title="Dismiss"
-          >
-            <X className="h-3.5 w-3.5" />
-          </button>
-        </div>
+      {/* "Back to Timeline" floating button */}
+      {fromTimeline && (
+        <button
+          onClick={() => window.close()}
+          className="fixed bottom-8 left-8 z-50 flex items-center gap-2 px-6 py-3 rounded-full bg-background border border-border shadow-2xl text-sm font-sans font-semibold text-foreground hover:bg-muted/50 hover:border-foreground/20 hover:scale-105 active:scale-95 transition-all animate-in fade-in slide-in-from-bottom-4 duration-500"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to Timeline
+        </button>
       )}
 
       <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">

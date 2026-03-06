@@ -139,7 +139,7 @@ const Index = () => {
               <span className="font-mono text-[11px] tracking-[0.6em] text-foreground uppercase font-black">Act No. 31/2016</span>
               <div className="flex-1 h-px bg-foreground/20" />
             </div>
-            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-black text-foreground leading-[0.9] mb-8 uppercase tracking-[-0.05em]">
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-extrabold text-foreground leading-[0.9] mb-8 uppercase tracking-[-0.05em]">
               The Insolvency and <br/> Bankruptcy Code
             </h1>
             
