@@ -23,11 +23,7 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
-        # This will automatically pick up the backend URL once deployed
-        fromService:
-          type: web
-          name: ibc-backend
-          property: url
+        value: "REPLACE_ME_WITH_BACKEND_URL_ONCE_LIVE" # e.g. https://ibc-backend.onrender.com/api/v1
 
 databases:
   - name: ibc-db
