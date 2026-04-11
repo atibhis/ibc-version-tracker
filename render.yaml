@@ -1,8 +1,8 @@
 services:
   # 1. Backend Service (FastAPI)
-  - type: web
+  - type: web_service
     name: ibc-backend
-    env: python
+    runtime: python
     rootDir: ibc/backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
@@ -15,12 +15,12 @@ services:
         value: 3.11.0
 
   # 2. Frontend Service (React/Vite)
-  - type: static
+  - type: static_site
     name: ibc-frontend
-    env: node
+    runtime: node
     rootDir: ibc/frontend
     buildCommand: npm install && npm run build
-    staticPublishDir: dist
+    publishDir: dist
     envVars:
       - key: VITE_API_URL
         # This will automatically pick up the backend URL once deployed
