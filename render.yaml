@@ -1,6 +1,6 @@
 services:
   # 1. Backend Service (FastAPI)
-  - type: web_service
+  - type: web
     name: ibc-backend
     runtime: python
     rootDir: ibc/backend
@@ -15,12 +15,12 @@ services:
         value: 3.11.0
 
   # 2. Frontend Service (React/Vite)
-  - type: static_site
+  - type: web
     name: ibc-frontend
-    runtime: node
+    runtime: static
     rootDir: ibc/frontend
     buildCommand: npm install && npm run build
-    publishDir: dist
+    staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
         # This will automatically pick up the backend URL once deployed
