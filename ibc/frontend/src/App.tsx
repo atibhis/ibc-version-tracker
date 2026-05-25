@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 // import { ThemeSwitcher } from "@/components/ThemeSwitcher"; // Gazette theme finalized; switcher hidden
@@ -12,7 +12,7 @@ function App() {
   return (
     <ThemeProvider>
       <TooltipProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/browse" element={<Browse />} />
@@ -23,7 +23,7 @@ function App() {
             {/* Catch-all redirect to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
         {/* <ThemeSwitcher /> */} {/* Gazette theme finalized; switcher hidden */}
       </TooltipProvider>
     </ThemeProvider>
