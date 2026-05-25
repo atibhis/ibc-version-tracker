@@ -8,7 +8,7 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: "classic",
+  theme: "gazette",
   setTheme: () => {},
 });
 
@@ -137,10 +137,8 @@ const PALETTES: Record<ThemeStyle, Record<string, string>> = {
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<ThemeStyle>(() => {
-    if (typeof window !== "undefined") {
-      return (localStorage.getItem("ibc-theme-style") as ThemeStyle) || "classic";
-    }
-    return "classic";
+    // Theme is finalized as Gazette; switcher is hidden.
+    return "gazette";
   });
 
   useEffect(() => {

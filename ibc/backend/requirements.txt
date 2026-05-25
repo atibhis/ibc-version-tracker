@@ -1,11 +1,10 @@
 fastapi
 uvicorn[standard]
 sqlmodel
-psycopg2-binary
-alembic
+duckdb
+duckdb-engine
 pydantic-settings
 python-multipart
 python-dotenv
-asyncpg
 jinja2
 python-slugify

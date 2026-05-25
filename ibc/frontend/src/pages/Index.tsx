@@ -47,7 +47,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col max-h-screen overflow-hidden">
       <Header />
-      <ThemeSwitcher />
+      {/* <ThemeSwitcher /> */} {/* Gazette theme finalized; switcher hidden */}
 
       {/* ============ CLASSIC ============ */}
       {theme === "classic" && (

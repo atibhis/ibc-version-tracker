@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+// import { ThemeSwitcher } from "@/components/ThemeSwitcher"; // Gazette theme finalized; switcher hidden
 import Index from "./pages/Index";
 import Browse from "./pages/Browse";
 import Timeline from "./pages/Timeline";
@@ -24,7 +24,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
-        <ThemeSwitcher />
+        {/* <ThemeSwitcher /> */} {/* Gazette theme finalized; switcher hidden */}
       </TooltipProvider>
     </ThemeProvider>
   );
