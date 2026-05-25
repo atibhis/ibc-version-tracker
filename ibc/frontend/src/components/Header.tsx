@@ -15,7 +15,7 @@ export function Header() {
       <div className="w-full px-6 flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
           <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-white overflow-hidden border border-border">
-            <img src="/logo.png" alt="IBC Tracker Logo" className="h-full w-full object-cover" />
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="IBC Tracker Logo" className="h-full w-full object-cover" />
           </div>
           <div className="hidden sm:block">
             <h1 className="font-serif text-lg font-semibold text-foreground leading-tight">
