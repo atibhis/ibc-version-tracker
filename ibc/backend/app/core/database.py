@@ -2,7 +2,12 @@ from sqlmodel import create_engine, Session, SQLModel
 from app.core.config import settings
 from typing import Generator
 
+import os
+
 connect_args = {}
+if os.environ.get("VERCEL"):
+    connect_args["read_only"] = True
+
 engine = create_engine(settings.DATABASE_URL, echo=True, connect_args=connect_args)
 
 def get_session() -> Generator[Session, None, None]:
